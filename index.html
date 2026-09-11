@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Maquette interactive - validation client. Donnees fictives.">
+<meta name="theme-color" content="#0B1020">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1020'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%2300F5FF' font-family='sans-serif' font-weight='bold'%3EF%3C/text%3E%3C/svg%3E">
+<title>Family Budget Junior</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#070B16;
+  --ground-2:#0B1020;
+  --surface:#161F38;
+  --surface-2:#1D2947;
+  --line:rgba(0,245,255,.20);
+  --cyan:#00F5FF;
+  --violet:#7C3CFF;
+  --green:#00E676;
+  --pink:#FF2A6D;
+  --ink:#FFFFFF;
+  --muted:#A0AEC0;
+  --dim:#6B7A99;
+  --r-s:12px; --r-m:16px; --r-l:24px;
+  --display:'Outfit','Segoe UI',system-ui,sans-serif;
+  --body:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);margin:0;
+  background-image:radial-gradient(900px 500px at 12% -8%,rgba(124,60,255,.20),transparent 60%),
+                   radial-gradient(800px 480px at 92% 4%,rgba(0,245,255,.13),transparent 60%);}
+h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px}
+
+/* ---------- page shell ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 56px}
+.masthead{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;
+  padding-bottom:18px;border-bottom:1px solid rgba(160,174,192,.18)}
+.brandline{display:flex;align-items:center;gap:12px}
+.mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--cyan),var(--violet));color:#07101E;font-family:var(--display);font-weight:800;font-size:18px}
+.masthead h1{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.masthead p{margin:3px 0 0;color:var(--muted);font-size:13.5px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tag{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);
+  border:1px solid rgba(160,174,192,.28);padding:5px 10px;border-radius:999px}
+.tag.live{color:var(--cyan);border-color:var(--line)}
+
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:34px;margin-top:30px;align-items:start}
+@media(max-width:940px){.stage{grid-template-columns:1fr}}
+
+/* ---------- phone ---------- */
+.phonecol{display:flex;flex-direction:column;align-items:center;gap:14px}
+.phone{width:390px;max-width:100%;height:788px;border-radius:42px;padding:11px;position:relative;
+  background:linear-gradient(160deg,#26314f,#0d1326);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(0,245,255,.14),0 0 60px -22px rgba(124,60,255,.55)}
+.screen{position:relative;height:100%;border-radius:32px;overflow:hidden;background:var(--ground-2);
+  background-image:radial-gradient(420px 240px at 78% -6%,rgba(124,60,255,.30),transparent 62%),
+                   radial-gradient(360px 240px at 6% 102%,rgba(0,245,255,.16),transparent 60%)}
+.statusbar{display:flex;justify-content:space-between;align-items:center;padding:12px 22px 4px;font-size:11.5px;color:var(--dim);
+  font-variant-numeric:tabular-nums}
+.view{display:none;flex-direction:column;height:calc(100% - 30px);padding:6px 20px 20px;overflow-y:auto;scrollbar-width:thin}
+.view.on{display:flex;animation:in .28s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- primitives ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:16px;backdrop-filter:blur(10px)}
+.card.flat{border-radius:var(--r-m);padding:13px 14px}
+.row{display:flex;align-items:center;gap:12px}
+.between{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.stack{display:flex;flex-direction:column}
+.gap6{gap:6px}.gap10{gap:10px}.gap14{gap:14px}.gap18{gap:18px}
+.grow{flex:1;min-width:0}
+.eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.h-lg{font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:-.02em}
+.h-md{font-family:var(--display);font-size:19px;font-weight:700}
+.h-sm{font-family:var(--display);font-size:15px;font-weight:600}
+.sub{color:var(--muted);font-size:13px;line-height:1.5}
+.tiny{font-size:11.5px;color:var(--dim)}
+.num{font-variant-numeric:tabular-nums}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:var(--r-m);
+  font-weight:700;font-size:15px;transition:transform .12s,filter .12s}
+.btn:active{transform:scale(.975)}
+.btn-primary{background:linear-gradient(120deg,var(--cyan),#48b9ff);color:#04121C;box-shadow:0 10px 26px -12px rgba(0,245,255,.85)}
+.btn-violet{background:linear-gradient(120deg,var(--violet),#a86bff);color:#fff;box-shadow:0 10px 26px -12px rgba(124,60,255,.9)}
+.btn-ghost{border:1px solid var(--line);color:var(--cyan);background:rgba(0,245,255,.05)}
+.btn-danger{border:1px solid rgba(255,42,109,.42);color:var(--pink);background:rgba(255,42,109,.08)}
+.pill{font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.pill.v{background:rgba(124,60,255,.18);color:#c4a6ff;border:1px solid rgba(124,60,255,.4)}
+.pill.c{background:rgba(0,245,255,.12);color:var(--cyan);border:1px solid var(--line)}
+.pill.g{background:rgba(0,230,118,.13);color:var(--green);border:1px solid rgba(0,230,118,.36)}
+.pill.p{background:rgba(255,42,109,.13);color:var(--pink);border:1px solid rgba(255,42,109,.36)}
+.avatar{width:52px;height:52px;border-radius:16px;flex:none;display:grid;place-items:center;overflow:hidden;
+  border:1px solid var(--line);background:var(--surface-2)}
+.avatar svg{width:100%;height:100%;display:block}
+.back{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;padding:6px 0}
+.field{width:100%;padding:13px 14px;border-radius:var(--r-m);background:rgba(11,16,32,.75);
+  border:1px solid rgba(160,174,192,.24);color:var(--ink);font-size:14px;font-family:var(--body)}
+.field::placeholder{color:var(--dim)}
+.field:focus{outline:none;border-color:var(--cyan)}
+.divider{height:1px;background:rgba(160,174,192,.16)}
+
+/* ---------- specific ---------- */
+.kidcard{display:flex;gap:13px;align-items:center;width:100%;text-align:left;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:14px;transition:border-color .15s,transform .12s}
+.kidcard:hover{border-color:rgba(0,245,255,.5)}
+.kidcard:active{transform:scale(.99)}
+.balance{font-family:var(--display);font-weight:800;letter-spacing:-.02em}
+.txt{display:flex;align-items:center;gap:11px;padding:11px 0}
+.dot{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-size:15px;flex:none}
+.dot.in{background:rgba(0,230,118,.14);color:var(--green)}
+.dot.out{background:rgba(255,42,109,.14);color:var(--pink)}
+.dot.bonus{background:rgba(124,60,255,.16);color:#c4a6ff}
+.bar{height:9px;border-radius:999px;background:rgba(160,174,192,.16);overflow:hidden}
+.bar>span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--cyan))}
+.pinbox{display:flex;gap:12px;justify-content:center;margin:22px 0 8px}
+.pindot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(160,174,192,.4)}
+.pindot.f{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 14px rgba(0,245,255,.8)}
+.pindot.err{background:var(--pink);border-color:var(--pink);box-shadow:none}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:auto}
+.key{height:60px;border-radius:var(--r-m);background:var(--surface);border:1px solid rgba(160,174,192,.16);
+  font-family:var(--display);font-size:23px;font-weight:600;display:grid;place-items:center;transition:background .12s}
+.key:active{background:var(--surface-2)}
+.key.blank{background:none;border:0}
+.bigtile{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:18px;border-radius:26px;
+  border:1px solid var(--line);transition:transform .12s}
+.bigtile:active{transform:scale(.98)}
+.bigtile .ic{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:28px;flex:none}
+.msg{max-width:83%;padding:11px 14px;border-radius:18px;font-size:13.5px;line-height:1.5}
+.msg.ai{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:6px;align-self:flex-start}
+.msg.me{background:linear-gradient(120deg,var(--violet),#9a63ff);border-bottom-right-radius:6px;align-self:flex-end;color:#fff}
+.msg.guard{background:rgba(255,42,109,.10);border:1px solid rgba(255,42,109,.4);align-self:flex-start;border-bottom-left-radius:6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:12px;padding:7px 11px;border-radius:999px;border:1px solid var(--line);color:var(--cyan);background:rgba(0,245,255,.05)}
+.switch{width:46px;height:27px;border-radius:999px;background:rgba(160,174,192,.28);position:relative;flex:none;transition:background .2s}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:transform .2s}
+.switch.on{background:var(--green)}
+.switch.on::after{transform:translateX(19px)}
+.coin{position:absolute;font-size:26px;pointer-events:none;animation:drop .75s ease-in forwards}
+@keyframes drop{0%{opacity:0;transform:translateY(-52px) scale(.6)}25%{opacity:1}100%{opacity:0;transform:translateY(28px) scale(1.15)}}
+.toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:var(--surface-2);
+  border:1px solid var(--line);padding:11px 16px;border-radius:var(--r-m);font-size:13px;font-weight:600;
+  box-shadow:0 14px 34px -14px #000;z-index:20;animation:in .2s ease}
+
+/* ---------- side panel ---------- */
+.panel{display:flex;flex-direction:column;gap:20px;position:sticky;top:24px}
+.navlist{display:flex;flex-direction:column;gap:2px}
+.navitem{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:11px;font-size:13.5px;color:var(--muted);
+  text-align:left;width:100%;transition:background .12s,color .12s}
+.navitem:hover{background:rgba(255,255,255,.04);color:var(--ink)}
+.navitem.act{background:rgba(0,245,255,.09);color:var(--cyan);font-weight:600}
+.navitem .n{font-size:10.5px;width:16px;color:var(--dim);font-variant-numeric:tabular-nums}
+.navitem.act .n{color:var(--cyan)}
+.group{padding:14px 4px 6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.spec{display:flex;gap:10px;padding:9px 0;font-size:12.8px;color:var(--muted);line-height:1.45}
+.spec b{color:var(--ink);font-weight:600}
+.spec .k{color:var(--cyan);flex:none;font-size:13px}
+.note{font-size:12px;color:var(--dim);line-height:1.6}
+@media(max-width:640px){
+  .wrap{padding:16px 12px 36px}
+  .masthead h1{font-size:21px}
+  .masthead p{font-size:12.5px}
+  .stage{margin-top:20px;gap:24px}
+  .phone{height:min(788px,calc(100dvh - 190px));min-height:560px;padding:8px;border-radius:34px}
+  .screen{border-radius:27px}
+  .panel{position:static}
+  .key{height:52px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="brandline">
+      <div class="mark">F</div>
+      <div>
+        <h1>Family Budget Junior</h1>
+        <p>Prototype cliquable — parcours parent, mode Éveil 0–7 ans et mode Autonomie 8 ans +</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span class="tag live">v0.1 · maquette</span>
+      <span class="tag">données fictives</span>
+      <button class="tag" id="reset" style="cursor:pointer">Réinitialiser</button>
+    </div>
+  </header>
+
+  <div class="stage">
+    <div class="phonecol">
+      <div class="phone">
+        <div class="screen" id="screen">
+          <div class="statusbar"><span class="num">9:41</span><span>Family Budget Junior</span><span class="num">100 %</span></div>
+
+          <!-- 1. Connexion parent -->
+          <section class="view on" id="v-login">
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px">
+              <div class="stack gap10" style="align-items:center;text-align:center">
+                <div class="mark" style="width:64px;height:64px;border-radius:20px;font-size:30px">F</div>
+                <div class="h-lg" style="margin-top:6px">Family Budget<br>Junior</div>
+                <div class="sub">L'espace parent commande tout.<br>Aucun enfant ne peut créer de compte.</div>
+              </div>
+              <div class="stack gap10">
+                <input class="field" type="email" value="claire.moreau@email.fr" aria-label="E-mail parent">
+                <input class="field" type="password" value="••••••••••" aria-label="Mot de passe">
+                <button class="btn btn-primary" onclick="go('parentHome')">Se connecter</button>
+                <button class="btn btn-ghost" onclick="go('parentHome')">Créer un compte parent</button>
+              </div>
+              <div class="tiny" style="text-align:center;line-height:1.6">Vérification parentale requise à l'inscription<br>(RGPD-K / COPPA — Parent-First Onboarding)</div>
+            </div>
+          </section>
+
+          <!-- 2. Espace parent -->
+          <section class="view" id="v-parentHome">
+            <div class="between" style="padding:10px 0 16px">
+              <div><div class="eyebrow">Espace parent</div><div class="h-md">Bonjour Claire</div></div>
+              <button class="avatar" style="width:44px;height:44px;border-radius:14px;font-size:18px" onclick="go('parental')" aria-label="Contrôle parental">⚙️</button>
+            </div>
+
+            <div class="card" style="background:linear-gradient(140deg,rgba(0,245,255,.13),rgba(124,60,255,.16));margin-bottom:16px">
+              <div class="eyebrow">Épargne totale de la famille</div>
+              <div class="balance" style="font-size:36px;margin:6px 0 2px" id="familyTotal">—</div>
+              <div class="tiny">2 profils enfants · <span id="pendingCount">—</span> mission(s) à valider</div>
+            </div>
+
+            <div class="eyebrow" style="margin-bottom:9px">Profils enfants</div>
+            <div class="stack gap10" id="kidList"></div>
+
+            <div class="stack gap10" style="margin-top:16px">
+              <button class="btn btn-ghost" onclick="go('addChild')">+ Ajouter un profil enfant</button>
+              <button class="btn btn-violet" onclick="go('childSelect')">Passer en mode enfant</button>
+            </div>
+            <div class="tiny" style="margin-top:14px;line-height:1.6">Le mode enfant se verrouille par code PIN. Le parent garde l'accès à l'historique complet.</div>
+          </section>
+
+          <!-- 3. Ajout enfant -->
+          <section class="view" id="v-addChild">
+            <button class="back" onclick="go('parentHome')">← Espace parent</button>
+            <div class="h-md" style="margin:6px 0 4px">Nouveau profil enfant</div>
+            <div class="sub" style="margin-bottom:16px">Prénom, âge et avatar seulement. Ni nom de famille, ni date de naissance, ni e-mail.</div>
+            <div class="stack gap10">
+              <input class="field" id="nName" placeholder="Prénom ou pseudo" value="Jade">
+              <div class="row gap10">
+                <input class="field num" id="nAge" type="number" min="3" max="17" value="5" style="width:100px">
+                <div class="sub grow" id="modePreview">Âge 5 → interface <b style="color:#c4a6ff">Éveil visuel</b></div>
+              </div>
+              <div class="eyebrow" style="margin-top:6px">Avatar</div>
+              <div class="row gap10" id="avatarPick" style="flex-wrap:wrap"></div>
+              <div class="eyebrow" style="margin-top:6px">Code PIN à 4 chiffres (chiffré sur l'appareil)</div>
+              <input class="field num" id="nPin" maxlength="4" value="2468" style="letter-spacing:.5em;text-align:center">
+              <button class="btn btn-primary" style="margin-top:6px" onclick="createChild()">Créer le profil</button>
+            </div>
+          </section>
+
+          <!-- 4. Contrôle parental -->
+          <section class="view" id="v-parental">
+            <button class="back" onclick="go('parentHome')">← Espace parent</button>
+            <div class="h-md" style="margin:6px 0 16px">Contrôle parental & données</div>
+            <div class="stack gap10" id="controls"></div>
+            <div class="card flat" style="margin-top:16px">
+              <div class="eyebrow">Cadre de l'assistant IA</div>
+              <div class="sub" style="margin-top:7px">Éducation financière ludique uniquement. Pas de conseil d'investissement, pas de sujet adulte, langage modéré. Aucun prénom ni donnée personnelle n'est envoyé au modèle.</div>
+            </div>
+            <div class="stack gap10" style="margin-top:16px">
+              <button class="btn btn-ghost" onclick="toast('Export JSON généré (démo)')">Exporter les données d'un enfant</button>
+              <button class="btn btn-danger" onclick="toast('Suppression définitive — confirmation à 2 étapes')">Supprimer un profil et son historique</button>
+            </div>
+            <div class="tiny" style="margin-top:12px;line-height:1.6">Droit à l'oubli : suppression irréversible du profil, des transactions et des missions.</div>
+          </section>
+
+          <!-- 5. Choix du profil -->
+          <section class="view" id="v-childSelect">
+            <button class="back" onclick="go('parentHome')">← Espace parent</button>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px">
+              <div class="stack gap6" style="text-align:center">
+                <div class="h-lg">Qui se connecte ?</div>
+                <div class="sub">Choisis ton avatar, puis ton code secret.</div>
+              </div>
+              <div class="stack gap10" id="pickList"></div>
+            </div>
+          </section>
+
+          <!-- 6. PIN -->
+          <section class="view" id="v-pin">
+            <button class="back" onclick="go('childSelect')">← Changer de profil</button>
+            <div class="stack gap6" style="align-items:center;margin-top:14px">
+              <div class="avatar" id="pinAvatar" style="width:72px;height:72px;border-radius:24px"></div>
+              <div class="h-md" style="margin-top:8px" id="pinName">—</div>
+              <div class="sub" id="pinHint">Entre ton code à 4 chiffres</div>
+            </div>
+            <div class="pinbox" id="pinBox"><i class="pindot"></i><i class="pindot"></i><i class="pindot"></i><i class="pindot"></i></div>
+            <div class="keypad" id="keypad"></div>
+          </section>
+
+          <!-- 7. Mode Éveil 0-7 -->
+          <section class="view" id="v-kidVisual">
+            <div class="between" style="padding:8px 0 12px">
+              <div class="row gap10"><div class="avatar" id="vAvatar" style="width:42px;height:42px;border-radius:14px"></div>
+                <div class="h-sm" id="vName">—</div></div>
+              <button class="pill c" onclick="go('childSelect')">Sortir</button>
+            </div>
+            <div class="card" style="text-align:center;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(0,230,118,.14),rgba(0,245,255,.10))">
+              <div class="eyebrow">Ma tirelire</div>
+              <div class="balance" style="font-size:46px;margin:8px 0" id="vBalance">—</div>
+              <button id="piggy" style="font-size:74px;line-height:1;filter:drop-shadow(0 0 22px rgba(0,230,118,.55))" aria-label="Ajouter une pièce">🐷</button>
+              <div class="tiny" style="margin-top:8px">Touche la tirelire pour mettre 1 €</div>
+            </div>
+            <div class="stack gap10" style="margin-top:14px">
+              <button class="bigtile" style="background:linear-gradient(120deg,rgba(124,60,255,.22),rgba(124,60,255,.06))" onclick="toast('3 missions imagées à faire')">
+                <div class="ic" style="background:rgba(124,60,255,.3)">⭐</div>
+                <div><div class="h-sm">Mes missions</div><div class="tiny">3 étoiles à gagner</div></div>
+              </button>
+              <button class="bigtile" style="background:linear-gradient(120deg,rgba(0,245,255,.20),rgba(0,245,255,.05))" onclick="toast('Objectif : la trottinette 🛴 — 24 pièces sur 60')">
+                <div class="ic" style="background:rgba(0,245,255,.26)">🛴</div>
+                <div><div class="h-sm">Mon rêve</div><div class="tiny">Presque la moitié !</div></div>
+              </button>
+              <button class="bigtile" style="background:linear-gradient(120deg,rgba(255,42,109,.18),rgba(255,42,109,.05))" onclick="toast('Tu as dépensé 2 € cette semaine')">
+                <div class="ic" style="background:rgba(255,42,109,.26)">🎁</div>
+                <div><div class="h-sm">Mes achats</div><div class="tiny">2 images cette semaine</div></div>
+              </button>
+            </div>
+            <div class="tiny" style="margin-top:14px;text-align:center">Aucun texte long, aucun chiffre complexe, pas d'assistant IA avant 8 ans.</div>
+          </section>
+
+          <!-- 8. Mode Autonomie 8+ -->
+          <section class="view" id="v-kidText">
+            <div class="between" style="padding:8px 0 12px">
+              <div class="row gap10"><div class="avatar" id="tAvatar" style="width:42px;height:42px;border-radius:14px"></div>
+                <div><div class="h-sm" id="tName">—</div><div class="tiny">Mode autonomie</div></div></div>
+              <button class="pill c" onclick="go('childSelect')">Sortir</button>
+            </div>
+
+            <div class="card" style="margin-bottom:14px">
+              <div class="between"><div class="eyebrow">Mon solde</div><span class="pill g" id="tWeek">—</span></div>
+              <div class="balance" style="font-size:34px;margin:6px 0 14px" id="tBalance">—</div>
+              <div class="between" style="margin-bottom:6px"><div class="tiny">Objectif : vélo BMX · 120 €</div><div class="tiny num" id="tPct">—</div></div>
+              <div class="bar"><span id="tBar" style="width:0"></span></div>
+              <div class="tiny" style="margin-top:8px">En mettant 5 €/semaine, objectif atteint <b id="tEta" style="color:var(--cyan)">—</b></div>
+            </div>
+
+            <button class="btn btn-violet" style="margin-bottom:14px" onclick="go('chat')">Parler à Zéro, mon coach budget</button>
+
+            <div class="eyebrow" style="margin-bottom:4px">Mes missions</div>
+            <div class="stack" id="tMissions"></div>
+
+            <div class="eyebrow" style="margin:14px 0 2px">Dernières opérations</div>
+            <div class="stack" id="tTx"></div>
+          </section>
+
+          <!-- 9. Chat IA -->
+          <section class="view" id="v-chat">
+            <div class="between" style="padding:8px 0 12px">
+              <button class="back" onclick="go('kidText')">← Retour</button>
+              <span class="pill v">IA · 8 ans et +</span>
+            </div>
+            <div class="stack gap10 grow" id="chatLog" style="overflow-y:auto;padding-bottom:10px"></div>
+            <div class="chips" style="margin:10px 0" id="chatChips"></div>
+            <div class="row gap10">
+              <input class="field grow" id="chatIn" placeholder="Pose ta question…">
+              <button class="btn btn-primary" style="padding:13px 16px" onclick="sendChat()">➤</button>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="tiny" style="text-align:center;max-width:390px">Maquette interactive — les données sont fictives et restent sur cet appareil. Aucun compte réel, aucun paiement.</div>
+    </div>
+
+    <aside class="panel">
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:8px">Parcours</div>
+        <div class="navlist" id="nav"></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:6px">Ce que la maquette démontre</div>
+        <div class="spec"><span class="k">◆</span><div><b>Parent-First</b> — création des profils enfants depuis le seul compte parent vérifié.</div></div>
+        <div class="divider"></div>
+        <div class="spec"><span class="k">◆</span><div><b>Bascule par l'âge</b> — moins de 8 ans → Éveil visuel ; 8 ans et + → Autonomie + IA.</div></div>
+        <div class="divider"></div>
+        <div class="spec"><span class="k">◆</span><div><b>PIN 4 chiffres</b> — connexion enfant sans e-mail (essayez un mauvais code).</div></div>
+        <div class="divider"></div>
+        <div class="spec"><span class="k">◆</span><div><b>Garde-fous IA</b> — posez une question hors budget à Zéro pour voir le refus.</div></div>
+        <div class="divider"></div>
+        <div class="spec"><span class="k">◆</span><div><b>Droit à l'oubli</b> — export et suppression définitive côté parent.</div></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:6px">Reste à trancher</div>
+        <div class="note">Packs d'avatars définitifs (licence commerciale) · fournisseur et financement de la clé IA · Firebase ou Supabase · nom de l'assistant · barème des missions.</div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+/* ---------- avatars (SVG inline, pas d'URL externe) ---------- */
+const PAL=[["#00F5FF","#0A7C8A"],["#7C3CFF","#3B1A7A"],["#00E676","#0A7A45"],["#FF2A6D","#8A0F36"],["#FFB020","#8A5A0A"],["#4D8DFF","#1B3E8A"]];
+function av(i){const[a,b]=PAL[i%6];return `<svg viewBox="0 0 64 64" role="img" aria-label="Avatar"><defs><linearGradient id="g${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="64" height="64" fill="#131B33"/><circle cx="32" cy="26" r="16" fill="url(#g${i})"/><path d="M16 26a16 16 0 0 1 32 0v-4a16 16 0 0 0-32 0z" fill="#0B1020" opacity=".55"/><rect x="20" y="23" width="24" height="9" rx="4.5" fill="#0B1020" opacity=".85"/><circle cx="26.5" cy="27.5" r="2.4" fill="${a}"/><circle cx="37.5" cy="27.5" r="2.4" fill="${a}"/><path d="M12 60c2-11 10-16 20-16s18 5 20 16z" fill="url(#g${i})" opacity=".9"/></svg>`}
+
+/* ---------- state ---------- */
+const SEED={children:[
+  {id:1,prenom:"Léa",age:6,av:2,pin:"1234",solde:24,mode:"visuel",ia:false,bloque:false},
+  {id:2,prenom:"Noah",age:10,av:0,pin:"1234",solde:47.5,mode:"texte",ia:true,bloque:false}],
+ tx:[{c:2,t:"depot",m:10,d:"Argent de poche",j:"6 sept."},{c:2,t:"bonus",m:3,d:"Mission : lave-vaisselle",j:"4 sept."},
+     {c:2,t:"retrait",m:4.5,d:"Manga tome 12",j:"2 sept."},{c:2,t:"depot",m:5,d:"Anniversaire mamie",j:"30 août"}],
+ missions:[{id:1,c:2,titre:"Sortir les poubelles (x3)",rec:2,statut:"en_cours"},
+           {id:2,c:2,titre:"Réviser les tables de 7",rec:3,statut:"validee"},
+           {id:3,c:1,titre:"Ranger les jouets",rec:1,statut:"en_cours"}]};
+let S,cur=null,view="login",pin="";
+const K="fbj-proto-v1";
+try{S=JSON.parse(localStorage.getItem(K))||structuredClone(SEED)}catch(e){S=structuredClone(SEED)}
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+const eur=n=>n.toFixed(2).replace(".",",")+" €";
+
+/* ---------- navigation ---------- */
+const VIEWS=[["login","Connexion parent"],["parentHome","Espace parent"],["addChild","Ajouter un enfant"],
+ ["parental","Contrôle parental"],["childSelect","Choix du profil"],["pin","Code PIN"],
+ ["kidVisual","Mode Éveil · 0–7 ans"],["kidText","Mode Autonomie · 8 ans +"],["chat","Coach IA « Zéro »"]];
+function go(id){
+  view=id;
+  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+id));
+  document.querySelectorAll(".navitem").forEach(b=>b.classList.toggle("act",b.dataset.v===id));
+  document.querySelector(".view.on").scrollTop=0;
+  if(id==="parentHome")renderParent();
+  if(id==="parental")renderControls();
+  if(id==="childSelect")renderPick();
+  if(id==="pin"){pin="";drawPin()}
+  if(id==="kidVisual")renderVisual();
+  if(id==="kidText")renderText();
+  if(id==="chat")renderChat();
+}
+document.getElementById("nav").innerHTML=VIEWS.map(([id,l],i)=>
+ `<button class="navitem${id===view?" act":""}" data-v="${id}" onclick="navTo('${id}')"><span class="n">${String(i+1).padStart(2,"0")}</span>${l}</button>`).join("");
+function navTo(id){
+  if((id==="kidVisual"||id==="pin")&&!cur)cur=S.children[0];
+  if(id==="kidText"&&(!cur||cur.mode!=="texte"))cur=S.children.find(c=>c.mode==="texte")||S.children[0];
+  if(id==="chat"&&(!cur||cur.mode!=="texte"))cur=S.children.find(c=>c.mode==="texte");
+  go(id);
+}
+
+/* ---------- espace parent ---------- */
+function renderParent(){
+  const tot=S.children.reduce((a,c)=>a+c.solde,0);
+  document.getElementById("familyTotal").textContent=eur(tot);
+  document.getElementById("pendingCount").textContent=S.missions.filter(m=>m.statut==="en_cours").length;
+  document.getElementById("kidList").innerHTML=S.children.map(c=>`
+    <button class="kidcard" onclick="enter(${c.id})">
+      <div class="avatar">${av(c.av)}</div>
+      <div class="grow">
+        <div class="row gap10"><span class="h-sm">${c.prenom}</span>
+          <span class="pill ${c.mode==="visuel"?"v":"c"}">${c.age} ans · ${c.mode==="visuel"?"Éveil":"Autonomie"}</span>
+          ${c.bloque?'<span class="pill p">bloqué</span>':""}</div>
+        <div class="tiny" style="margin-top:3px">${S.missions.filter(m=>m.c===c.id&&m.statut==="en_cours").length} mission(s) en cours</div>
+      </div>
+      <div class="balance num" style="font-size:18px;color:var(--green)">${eur(c.solde)}</div>
+    </button>`).join("");
+}
+function enter(id){cur=S.children.find(c=>c.id===id);go("pin")}
+
+function renderControls(){
+  document.getElementById("controls").innerHTML=S.children.map(c=>`
+    <div class="card flat">
+      <div class="row gap10" style="margin-bottom:10px"><div class="avatar" style="width:38px;height:38px;border-radius:12px">${av(c.av)}</div>
+        <div class="grow"><div class="h-sm">${c.prenom}</div><div class="tiny">${c.age} ans · mode ${c.mode}</div></div></div>
+      <div class="between" style="padding:7px 0"><div class="sub">Assistant IA ${c.age<8?"<span class='tiny'>(indisponible avant 8 ans)</span>":""}</div>
+        <button class="switch ${c.ia&&c.age>=8?"on":""}" ${c.age<8?"disabled style='opacity:.35'":`onclick="tog(${c.id},'ia')"`} aria-label="Activer l'IA"></button></div>
+      <div class="between" style="padding:7px 0"><div class="sub">Bloquer temporairement le profil</div>
+        <button class="switch ${c.bloque?"on":""}" onclick="tog(${c.id},'bloque')" aria-label="Bloquer le profil"></button></div>
+    </div>`).join("");
+}
+function tog(id,k){const c=S.children.find(x=>x.id===id);c[k]=!c[k];save();renderControls();
+  toast(k==="ia"?(c.ia?"Assistant IA activé pour "+c.prenom:"Assistant IA désactivé"):(c.bloque?c.prenom+" ne peut plus se connecter":"Profil réactivé"))}
+
+/* ---------- ajout enfant ---------- */
+let pickedAv=3;
+document.getElementById("avatarPick").innerHTML=[0,1,2,3,4,5].map(i=>
+  `<button class="avatar" data-a="${i}" onclick="pickAv(${i})" style="${i===3?"border-color:var(--cyan);box-shadow:0 0 0 2px rgba(0,245,255,.35)":""}">${av(i)}</button>`).join("");
+function pickAv(i){pickedAv=i;document.querySelectorAll("#avatarPick .avatar").forEach(b=>{
+  const on=+b.dataset.a===i;b.style.borderColor=on?"var(--cyan)":"";b.style.boxShadow=on?"0 0 0 2px rgba(0,245,255,.35)":""})}
+document.getElementById("nAge").addEventListener("input",e=>{
+  const a=+e.target.value||0;
+  document.getElementById("modePreview").innerHTML=`Âge ${a} → interface <b style="color:${a>=8?"var(--cyan)":"#c4a6ff"}">${a>=8?"Autonomie + IA":"Éveil visuel"}</b>`});
+function createChild(){
+  const n=document.getElementById("nName").value.trim()||"Enfant",a=+document.getElementById("nAge").value||5,
+        p=(document.getElementById("nPin").value||"0000").slice(0,4);
+  S.children.push({id:Date.now(),prenom:n,age:a,av:pickedAv,pin:p,solde:0,mode:a>=8?"texte":"visuel",ia:a>=8,bloque:false});
+  save();go("parentHome");toast(n+" a été ajouté·e")}
+
+/* ---------- choix profil + PIN ---------- */
+function renderPick(){
+  document.getElementById("pickList").innerHTML=S.children.map(c=>`
+    <button class="kidcard" onclick="enter(${c.id})" ${c.bloque?'style="opacity:.45"':""}>
+      <div class="avatar" style="width:56px;height:56px;border-radius:18px">${av(c.av)}</div>
+      <div class="grow"><div class="h-md">${c.prenom}</div>
+        <div class="tiny">${c.bloque?"Profil bloqué par le parent":"Code à 4 chiffres"}</div></div>
+      <span style="color:var(--cyan);font-size:20px">›</span></button>`).join("")}
+document.getElementById("keypad").innerHTML=[1,2,3,4,5,6,7,8,9,"",0,"⌫"].map(k=>
+  k===""?'<div class="key blank"></div>':`<button class="key" onclick="tap('${k}')">${k}</button>`).join("");
+function drawPin(err){document.querySelectorAll("#pinBox .pindot").forEach((d,i)=>{
+  d.className="pindot"+(err?" err":(i<pin.length?" f":""))})}
+function tap(k){
+  if(k==="⌫"){pin=pin.slice(0,-1);return drawPin()}
+  if(pin.length>=4)return; pin+=k; drawPin();
+  if(pin.length===4)setTimeout(()=>{
+    if(cur.bloque){drawPin(true);document.getElementById("pinHint").textContent="Profil bloqué par le parent";pin="";return setTimeout(drawPin,900)}
+    if(pin===cur.pin){go(cur.mode==="visuel"?"kidVisual":"kidText")}
+    else{drawPin(true);document.getElementById("pinHint").textContent="Code incorrect, réessaie";
+      if(navigator.vibrate)navigator.vibrate(80);pin="";setTimeout(drawPin,900)}},130)}
+
+/* ---------- mode Éveil ---------- */
+function renderVisual(){
+  document.getElementById("vAvatar").innerHTML=av(cur.av);
+  document.getElementById("vName").textContent=cur.prenom;
+  document.getElementById("vBalance").textContent=Math.round(cur.solde)+" €";
+  document.getElementById("pinAvatar").innerHTML=av(cur.av);
+}
+document.getElementById("piggy").addEventListener("click",e=>{
+  cur.solde+=1;save();document.getElementById("vBalance").textContent=Math.round(cur.solde)+" €";
+  const c=document.createElement("span");c.className="coin";c.textContent="🪙";
+  c.style.left="calc(50% - 13px)";c.style.top="96px";e.target.parentElement.appendChild(c);
+  setTimeout(()=>c.remove(),760)});
+
+/* ---------- mode Autonomie ---------- */
+function renderText(){
+  document.getElementById("tAvatar").innerHTML=av(cur.av);
+  document.getElementById("tName").textContent=cur.prenom;
+  document.getElementById("tBalance").textContent=eur(cur.solde);
+  const pct=Math.min(100,cur.solde/120*100);
+  document.getElementById("tPct").textContent=Math.round(pct)+" %";
+  document.getElementById("tBar").style.width=pct+"%";
+  const sem=Math.ceil(Math.max(0,120-cur.solde)/5);
+  const d=new Date(2026,8,9+sem*7);
+  document.getElementById("tEta").textContent="dans "+sem+" semaines ("+d.toLocaleDateString("fr-FR",{day:"numeric",month:"long"})+")";
+  document.getElementById("tWeek").textContent="+ "+eur(13)+" cette semaine";
+  document.getElementById("tMissions").innerHTML=S.missions.filter(m=>m.c===cur.id).map(m=>`
+    <div class="card flat" style="margin-top:8px"><div class="between">
+      <div class="grow"><div class="h-sm">${m.titre}</div>
+        <div class="tiny" style="margin-top:2px">Récompense ${eur(m.rec)}</div></div>
+      ${m.statut==="validee"?'<span class="pill g">Validée</span>':
+        `<button class="pill c" onclick="claim(${m.id})">J'ai fini</button>`}
+    </div></div>`).join("")||'<div class="tiny">Aucune mission pour l\'instant.</div>';
+  document.getElementById("tTx").innerHTML=S.tx.filter(t=>t.c===cur.id).map(t=>`
+    <div class="txt"><div class="dot ${t.t==="depot"?"in":t.t==="retrait"?"out":"bonus"}">${t.t==="depot"?"↓":t.t==="retrait"?"↑":"★"}</div>
+      <div class="grow"><div style="font-size:13.5px;font-weight:600">${t.d}</div><div class="tiny">${t.j}</div></div>
+      <div class="num" style="font-weight:700;color:${t.t==="retrait"?"var(--pink)":"var(--green)"}">${t.t==="retrait"?"−":"+"}${eur(t.m)}</div></div>`).join("");
+}
+function claim(id){const m=S.missions.find(x=>x.id===id);m.statut="validee";cur.solde+=m.rec;
+  S.tx.unshift({c:cur.id,t:"bonus",m:m.rec,d:"Mission : "+m.titre,j:"aujourd'hui"});save();renderText();
+  toast("Mission envoyée au parent · +"+eur(m.rec))}
+
+/* ---------- coach IA (maquette) ---------- */
+const SUJETS=["budget","épargne","économis","argent","euro","dépens","achat","mission","tirelire","prix","cher","coûte","payer","vélo","objectif","banque","monnaie","cadeau"];
+const REPS=[
+ "Bonne question ! Ton vélo coûte 120 € et tu as déjà 47,50 €. Si tu mets 5 € de côté chaque semaine, il te reste 15 semaines. En ajoutant une mission à 3 €, tu gagnes 4 semaines.",
+ "Astuce : sépare ton argent en trois parts — une pour dépenser tout de suite, une pour ton objectif, une petite pour offrir. Beaucoup de gens font 50 / 40 / 10.",
+ "Avant d'acheter, attends une nuit. Si tu y penses encore le lendemain, c'est sûrement une vraie envie. Sinon tu viens d'économiser !",
+ "Un budget, c'est juste un plan : combien j'ai, combien je veux garder, combien je peux dépenser. Tu veux qu'on écrive le tien pour le mois ?"];
+let ri=0;
+function renderChat(){
+  if(cur&&!cur.ia){document.getElementById("chatLog").innerHTML=
+    '<div class="msg guard">L\'assistant a été désactivé par ton parent. Tu peux quand même suivre ton solde et tes missions.</div>';
+    document.getElementById("chatChips").innerHTML="";return}
+  document.getElementById("chatLog").innerHTML=
+   `<div class="msg ai">Salut ${cur?cur.prenom:""} ! Je suis Zéro, ton coach budget. Je parle d'argent de poche, d'épargne et de projets — rien d'autre.</div>`;
+  document.getElementById("chatChips").innerHTML=
+   ["Comment épargner plus vite ?","C'est quoi un budget ?","Je peux m'acheter un jeu ?"]
+   .map(q=>`<button class="chip" onclick="ask('${q.replace(/'/g,"\\'")}')">${q}</button>`).join("");
+}
+function push(cls,t){const l=document.getElementById("chatLog");
+  const d=document.createElement("div");d.className="msg "+cls;d.textContent=t;l.appendChild(d);l.scrollTop=l.scrollHeight}
+function ask(q){
+  push("me",q);
+  const ok=SUJETS.some(s=>q.toLowerCase().includes(s));
+  setTimeout(()=>{ok?push("ai",REPS[ri++%REPS.length])
+    :push("guard","Je ne parle que d'argent de poche, d'épargne et de budget. Pour le reste, demande à un adulte de confiance ! 🙂")},420)}
+function sendChat(){const i=document.getElementById("chatIn");if(!i.value.trim())return;ask(i.value.trim());i.value=""}
+document.getElementById("chatIn").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat()});
+
+/* ---------- divers ---------- */
+function toast(t){const o=document.querySelector(".toast");if(o)o.remove();
+  const d=document.createElement("div");d.className="toast";d.textContent=t;
+  document.getElementById("screen").appendChild(d);setTimeout(()=>d.remove(),2200)}
+document.getElementById("reset").addEventListener("click",()=>{S=structuredClone(SEED);cur=null;save();go("login");toast("Démo réinitialisée")});
+renderParent();
+</script>
+
+</body>
+</html>
