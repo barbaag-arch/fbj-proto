@@ -23,3 +23,4 @@ Ce n'est pas l'application : aucune donnée réelle, aucun backend, aucun appel 
 
 ## Statut
 Prototype v0.1 — en validation client. Référence : Cahier des charges V2.
+<!-- déploiement -->
