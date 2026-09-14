@@ -4,172 +4,173 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="description" content="Maquette interactive - validation client. Donnees fictives.">
-<meta name="theme-color" content="#0B1020">
+<meta name="author" content="Andy BARBA">
+<meta name="description" content="Maquette interactive V0.3 - validation client. Donnees fictives.">
+<meta name="theme-color" content="#0F172A">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1020'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' fill='%2300F5FF' font-family='sans-serif' font-weight='bold'%3EF%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F172A'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle'%3E%F0%9F%90%B7%3C/text%3E%3C/svg%3E">
+<!-- Prototype Family Budget Junior V0.3 - (c) Andy BARBA 2026. Tous droits reserves.
+     Aucune cession de droits patrimoniaux n'est intervenue a ce jour. -->
 <title>Family Budget Junior</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --ground:#070B16;
-  --ground-2:#0B1020;
-  --surface:#161F38;
-  --surface-2:#1D2947;
-  --line:rgba(0,245,255,.20);
-  --cyan:#00F5FF;
-  --violet:#7C3CFF;
-  --green:#00E676;
-  --pink:#FF2A6D;
-  --ink:#FFFFFF;
-  --muted:#A0AEC0;
-  --dim:#6B7A99;
-  --r-s:12px; --r-m:16px; --r-l:24px;
-  --display:'Outfit','Segoe UI',system-ui,sans-serif;
-  --body:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
+  --page:#0E1424;--panel:#161D31;--panelline:rgba(255,255,255,.09);
+  --app:#F4F7FF;--card:#FFFFFF;--ink:#1F2937;--ink-2:#6B7280;--ink-3:#9CA3AF;
+  --blue:#1E7BE8;--indigo:#4F46E5;--violet:#7C3AED;--pink:#DB2777;
+  --green:#059669;--amber:#D97706;--red:#DC2626;
+  --night:#0F172A;--night-2:#1E3A5F;
+  --title:'Fredoka One',system-ui,sans-serif;
+  --body:'Outfit',system-ui,sans-serif;
+  --mono:'DM Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box}
-body{background:var(--ground);color:var(--ink);font-family:var(--body);margin:0;
-  background-image:radial-gradient(900px 500px at 12% -8%,rgba(124,60,255,.20),transparent 60%),
-                   radial-gradient(800px 480px at 92% 4%,rgba(0,245,255,.13),transparent 60%);}
-h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance}
-button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
-:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:6px}
-
-/* ---------- page shell ---------- */
-.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 56px}
+body{margin:0;background:var(--page);color:#E5E9F2;font-family:var(--body);
+  background-image:radial-gradient(900px 480px at 10% -10%,rgba(79,70,229,.22),transparent 60%),
+                   radial-gradient(760px 420px at 92% 2%,rgba(30,123,232,.16),transparent 60%)}
+h1,h2,h3{margin:0}
+button{font-family:inherit;border:0;background:none;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:8px}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 20px 40px}
 .masthead{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;
-  padding-bottom:18px;border-bottom:1px solid rgba(160,174,192,.18)}
+  padding-bottom:16px;border-bottom:1px solid var(--panelline)}
 .brandline{display:flex;align-items:center;gap:12px}
-.mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
-  background:linear-gradient(140deg,var(--cyan),var(--violet));color:#07101E;font-family:var(--display);font-weight:800;font-size:18px}
-.masthead h1{font-size:26px;font-weight:800;letter-spacing:-.02em}
-.masthead p{margin:3px 0 0;color:var(--muted);font-size:13.5px}
+.mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;font-size:21px;
+  background:linear-gradient(135deg,var(--blue),var(--indigo))}
+.masthead h1{font-family:var(--title);font-size:25px;font-weight:400;letter-spacing:.01em}
+.masthead p{margin:4px 0 0;color:#93A0B8;font-size:13.5px}
 .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.tag{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);
-  border:1px solid rgba(160,174,192,.28);padding:5px 10px;border-radius:999px}
-.tag.live{color:var(--cyan);border-color:var(--line)}
-
-.stage{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:34px;margin-top:30px;align-items:start}
+.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#93A0B8;
+  border:1px solid var(--panelline);padding:5px 10px;border-radius:999px}
+.tag.live{color:#7FD3FF;border-color:rgba(127,211,255,.35)}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 376px;gap:32px;margin-top:26px;align-items:start}
 @media(max-width:940px){.stage{grid-template-columns:1fr}}
+.phonecol{display:flex;flex-direction:column;align-items:center;gap:13px}
+.phone{width:390px;max-width:100%;height:796px;border-radius:44px;padding:10px;
+  background:linear-gradient(160deg,#39445e,#141a2a);
+  box-shadow:0 42px 90px -32px #000,0 0 0 1px rgba(255,255,255,.08)}
+.screen{position:relative;height:100%;border-radius:35px;overflow:hidden;background:var(--app);color:var(--ink)}
+.view{display:none;flex-direction:column;height:100%;overflow-y:auto;scrollbar-width:none}
+.view::-webkit-scrollbar{display:none}
+.view.on{display:flex;animation:fade .26s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* ---------- phone ---------- */
-.phonecol{display:flex;flex-direction:column;align-items:center;gap:14px}
-.phone{width:390px;max-width:100%;height:788px;border-radius:42px;padding:11px;position:relative;
-  background:linear-gradient(160deg,#26314f,#0d1326);
-  box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(0,245,255,.14),0 0 60px -22px rgba(124,60,255,.55)}
-.screen{position:relative;height:100%;border-radius:32px;overflow:hidden;background:var(--ground-2);
-  background-image:radial-gradient(420px 240px at 78% -6%,rgba(124,60,255,.30),transparent 62%),
-                   radial-gradient(360px 240px at 6% 102%,rgba(0,245,255,.16),transparent 60%)}
-.statusbar{display:flex;justify-content:space-between;align-items:center;padding:12px 22px 4px;font-size:11.5px;color:var(--dim);
-  font-variant-numeric:tabular-nums}
-.view{display:none;flex-direction:column;height:calc(100% - 30px);padding:6px 20px 20px;overflow-y:auto;scrollbar-width:thin}
-.view.on{display:flex;animation:in .28s ease}
-@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* --- entêtes sombres, façon maquette cliente --- */
+.hdr{padding:42px 20px 22px;color:#fff;background:linear-gradient(135deg,var(--night),var(--night-2))}
+.hdr.kid{background:linear-gradient(135deg,var(--blue),var(--indigo));border-radius:0 0 34px 34px;padding-bottom:26px}
+.hdr .eyebrow{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#93A5C4}
+.hdr h2{font-family:var(--title);font-weight:400;font-size:19px;margin-top:3px}
+.body{padding:18px 20px 26px;display:flex;flex-direction:column;gap:16px;flex:1}
+.back{color:rgba(255,255,255,.72);font-size:13px;font-weight:700;padding:0 0 10px;text-align:left}
+.back.dark{color:var(--ink-2)}
 
-/* ---------- primitives ---------- */
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:16px;backdrop-filter:blur(10px)}
-.card.flat{border-radius:var(--r-m);padding:13px 14px}
-.row{display:flex;align-items:center;gap:12px}
+/* --- primitives --- */
+.card{background:var(--card);border-radius:20px;padding:15px;box-shadow:0 2px 10px -4px rgba(31,41,55,.18)}
+.glass{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:14px}
+.row{display:flex;align-items:center;gap:11px}
 .between{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.stack{display:flex;flex-direction:column}
-.gap6{gap:6px}.gap10{gap:10px}.gap14{gap:14px}.gap18{gap:18px}
+.col{display:flex;flex-direction:column}
+.g6{gap:6px}.g10{gap:10px}.g14{gap:14px}
 .grow{flex:1;min-width:0}
-.eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-.h-lg{font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:-.02em}
-.h-md{font-family:var(--display);font-size:19px;font-weight:700}
-.h-sm{font-family:var(--display);font-size:15px;font-weight:600}
-.sub{color:var(--muted);font-size:13px;line-height:1.5}
-.tiny{font-size:11.5px;color:var(--dim)}
-.num{font-variant-numeric:tabular-nums}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:var(--r-m);
-  font-weight:700;font-size:15px;transition:transform .12s,filter .12s}
-.btn:active{transform:scale(.975)}
-.btn-primary{background:linear-gradient(120deg,var(--cyan),#48b9ff);color:#04121C;box-shadow:0 10px 26px -12px rgba(0,245,255,.85)}
-.btn-violet{background:linear-gradient(120deg,var(--violet),#a86bff);color:#fff;box-shadow:0 10px 26px -12px rgba(124,60,255,.9)}
-.btn-ghost{border:1px solid var(--line);color:var(--cyan);background:rgba(0,245,255,.05)}
-.btn-danger{border:1px solid rgba(255,42,109,.42);color:var(--pink);background:rgba(255,42,109,.08)}
-.pill{font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap}
-.pill.v{background:rgba(124,60,255,.18);color:#c4a6ff;border:1px solid rgba(124,60,255,.4)}
-.pill.c{background:rgba(0,245,255,.12);color:var(--cyan);border:1px solid var(--line)}
-.pill.g{background:rgba(0,230,118,.13);color:var(--green);border:1px solid rgba(0,230,118,.36)}
-.pill.p{background:rgba(255,42,109,.13);color:var(--pink);border:1px solid rgba(255,42,109,.36)}
-.avatar{width:52px;height:52px;border-radius:16px;flex:none;display:grid;place-items:center;overflow:hidden;
-  border:1px solid var(--line);background:var(--surface-2)}
-.avatar svg{width:100%;height:100%;display:block}
-.back{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;padding:6px 0}
-.field{width:100%;padding:13px 14px;border-radius:var(--r-m);background:rgba(11,16,32,.75);
-  border:1px solid rgba(160,174,192,.24);color:var(--ink);font-size:14px;font-family:var(--body)}
-.field::placeholder{color:var(--dim)}
-.field:focus{outline:none;border-color:var(--cyan)}
-.divider{height:1px;background:rgba(160,174,192,.16)}
-
-/* ---------- specific ---------- */
-.kidcard{display:flex;gap:13px;align-items:center;width:100%;text-align:left;
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:14px;transition:border-color .15s,transform .12s}
-.kidcard:hover{border-color:rgba(0,245,255,.5)}
-.kidcard:active{transform:scale(.99)}
-.balance{font-family:var(--display);font-weight:800;letter-spacing:-.02em}
-.txt{display:flex;align-items:center;gap:11px;padding:11px 0}
-.dot{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-size:15px;flex:none}
-.dot.in{background:rgba(0,230,118,.14);color:var(--green)}
-.dot.out{background:rgba(255,42,109,.14);color:var(--pink)}
-.dot.bonus{background:rgba(124,60,255,.16);color:#c4a6ff}
-.bar{height:9px;border-radius:999px;background:rgba(160,174,192,.16);overflow:hidden}
-.bar>span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--cyan))}
-.pinbox{display:flex;gap:12px;justify-content:center;margin:22px 0 8px}
-.pindot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(160,174,192,.4)}
-.pindot.f{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 14px rgba(0,245,255,.8)}
-.pindot.err{background:var(--pink);border-color:var(--pink);box-shadow:none}
-.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:auto}
-.key{height:60px;border-radius:var(--r-m);background:var(--surface);border:1px solid rgba(160,174,192,.16);
-  font-family:var(--display);font-size:23px;font-weight:600;display:grid;place-items:center;transition:background .12s}
-.key:active{background:var(--surface-2)}
-.key.blank{background:none;border:0}
-.bigtile{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:18px;border-radius:26px;
-  border:1px solid var(--line);transition:transform .12s}
-.bigtile:active{transform:scale(.98)}
-.bigtile .ic{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:28px;flex:none}
-.msg{max-width:83%;padding:11px 14px;border-radius:18px;font-size:13.5px;line-height:1.5}
-.msg.ai{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:6px;align-self:flex-start}
-.msg.me{background:linear-gradient(120deg,var(--violet),#9a63ff);border-bottom-right-radius:6px;align-self:flex-end;color:#fff}
-.msg.guard{background:rgba(255,42,109,.10);border:1px solid rgba(255,42,109,.4);align-self:flex-start;border-bottom-left-radius:6px}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{font-size:12px;padding:7px 11px;border-radius:999px;border:1px solid var(--line);color:var(--cyan);background:rgba(0,245,255,.05)}
-.switch{width:46px;height:27px;border-radius:999px;background:rgba(160,174,192,.28);position:relative;flex:none;transition:background .2s}
-.switch::after{content:"";position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:transform .2s}
+.t-title{font-family:var(--title);font-weight:400}
+.t-lg{font-family:var(--title);font-size:26px;font-weight:400}
+.t-md{font-family:var(--title);font-size:17px;font-weight:400}
+.t-sm{font-weight:800;font-size:14.5px}
+.sub{color:var(--ink-2);font-size:13px;line-height:1.5}
+.sub.on-dark{color:rgba(255,255,255,.72)}
+.tiny{font-size:11.5px;color:var(--ink-3);line-height:1.5}
+.tiny.on-dark{color:rgba(255,255,255,.6)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.money{font-family:var(--mono);font-weight:500}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 16px;border-radius:16px;
+  font-weight:800;font-size:14.5px;color:#fff;transition:transform .12s}
+.btn:active{transform:scale(.97)}
+.btn.sm{padding:10px 12px;font-size:13px;border-radius:13px}
+.b-blue{background:linear-gradient(135deg,var(--blue),var(--indigo))}
+.b-green{background:linear-gradient(135deg,#059669,#0D9488)}
+.b-amber{background:linear-gradient(135deg,#D97706,#DC2626)}
+.b-violet{background:linear-gradient(135deg,#7C3AED,#C026D3)}
+.b-plain{background:#EEF2FF;color:var(--indigo)}
+.b-ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px #E5E7EB}
+.b-danger{background:#FEF2F2;color:var(--red);box-shadow:inset 0 0 0 1.5px #FECACA}
+.tile{display:flex;align-items:center;gap:11px;padding:14px;border-radius:18px;text-align:left;color:#fff;transition:transform .12s}
+.tile:active{transform:scale(.97)}
+.tile .ic{font-size:22px}
+.pill{font-size:10.5px;font-weight:800;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.p-blue{background:#DBEAFE;color:#1D4ED8}
+.p-violet{background:#EDE9FE;color:#6D28D9}
+.p-green{background:#D1FAE5;color:#047857}
+.p-amber{background:#FEF3C7;color:#B45309}
+.p-red{background:#FEE2E2;color:#B91C1C}
+.av{border-radius:50%;overflow:hidden;flex:none;display:block}
+.av svg{display:block;width:100%;height:100%}
+.field{width:100%;padding:13px 14px;border-radius:15px;background:#fff;box-shadow:inset 0 0 0 1.5px #E5E7EB;
+  border:0;font-size:14.5px;font-family:var(--body);color:var(--ink)}
+.field:focus{outline:none;box-shadow:inset 0 0 0 2px var(--blue)}
+.bar{height:11px;border-radius:999px;background:#E9EDF6;overflow:hidden}
+.bar>span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#6BCB77,#FFD93D);transition:width .6s}
+.bar.on-dark{background:rgba(255,255,255,.22)}
+.kidrow{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:#fff;border-radius:20px;
+  padding:13px;box-shadow:0 2px 10px -4px rgba(31,41,55,.18);transition:transform .12s}
+.kidrow:active{transform:scale(.99)}
+.tx{display:flex;align-items:center;gap:11px;padding:10px 0}
+.dotic{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font-size:14px;flex:none}
+.legend{display:flex;align-items:center;gap:8px;font-size:12px}
+.sw{width:11px;height:11px;border-radius:50%;flex:none}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:auto}
+.key{height:58px;border-radius:17px;background:#fff;font-family:var(--title);font-size:22px;font-weight:400;
+  display:grid;place-items:center;box-shadow:0 2px 8px -4px rgba(31,41,55,.3)}
+.key:active{background:#EEF2FF}
+.key.blank{background:none;box-shadow:none}
+.pins{display:flex;gap:13px;justify-content:center;margin:20px 0 6px}
+.pind{width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,.28)}
+.pind.f{background:#fff}
+.pind.err{background:#FCA5A5}
+.tips{margin-top:10px;border-top:1px dashed #E5E7EB;padding-top:9px}
+.tipbtn{font-size:12px;font-weight:800;color:var(--indigo);display:flex;align-items:center;gap:6px}
+.tiplist{margin:8px 0 0;padding-left:16px}
+.tiplist li{font-size:12.3px;color:var(--ink-2);line-height:1.55;margin-bottom:5px}
+.msg{max-width:84%;padding:11px 13px;border-radius:17px;font-size:13.3px;line-height:1.5}
+.m-ai{background:#fff;box-shadow:0 2px 8px -4px rgba(31,41,55,.2);border-bottom-left-radius:5px;align-self:flex-start}
+.m-me{background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.m-guard{background:#FEF2F2;color:#991B1B;box-shadow:inset 0 0 0 1.5px #FECACA;border-bottom-left-radius:5px;align-self:flex-start}
+.chip{font-size:12px;padding:7px 11px;border-radius:999px;background:#EEF2FF;color:var(--indigo);font-weight:700}
+.switch{width:46px;height:27px;border-radius:999px;background:#D1D5DB;position:relative;flex:none;transition:background .2s}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 .switch.on{background:var(--green)}
 .switch.on::after{transform:translateX(19px)}
-.coin{position:absolute;font-size:26px;pointer-events:none;animation:drop .75s ease-in forwards}
-@keyframes drop{0%{opacity:0;transform:translateY(-52px) scale(.6)}25%{opacity:1}100%{opacity:0;transform:translateY(28px) scale(1.15)}}
-.toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:var(--surface-2);
-  border:1px solid var(--line);padding:11px 16px;border-radius:var(--r-m);font-size:13px;font-weight:600;
-  box-shadow:0 14px 34px -14px #000;z-index:20;animation:in .2s ease}
+.toast{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:#111827;color:#fff;
+  padding:11px 16px;border-radius:15px;font-size:12.8px;font-weight:700;max-width:84%;text-align:center;z-index:30;
+  box-shadow:0 16px 34px -14px #000;animation:fade .2s ease}
+.badge{min-width:23px;height:23px;padding:0 6px;border-radius:999px;background:#EF4444;color:#fff;font-size:11.5px;
+  font-weight:800;display:grid;place-items:center}
+#confetti{position:absolute;inset:0;pointer-events:none;z-index:25}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini{background:#F8FAFF;border-radius:15px;padding:11px 12px;box-shadow:inset 0 0 0 1.5px #E9EDF6}
 
-/* ---------- side panel ---------- */
-.panel{display:flex;flex-direction:column;gap:20px;position:sticky;top:24px}
+/* --- panneau latéral --- */
+.panel{display:flex;flex-direction:column;gap:18px;position:sticky;top:22px}
+.pcard{background:var(--panel);border:1px solid var(--panelline);border-radius:20px;padding:16px}
+.peyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7E8BA6;margin-bottom:9px}
 .navlist{display:flex;flex-direction:column;gap:2px}
-.navitem{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:11px;font-size:13.5px;color:var(--muted);
-  text-align:left;width:100%;transition:background .12s,color .12s}
-.navitem:hover{background:rgba(255,255,255,.04);color:var(--ink)}
-.navitem.act{background:rgba(0,245,255,.09);color:var(--cyan);font-weight:600}
-.navitem .n{font-size:10.5px;width:16px;color:var(--dim);font-variant-numeric:tabular-nums}
-.navitem.act .n{color:var(--cyan)}
-.group{padding:14px 4px 6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-.spec{display:flex;gap:10px;padding:9px 0;font-size:12.8px;color:var(--muted);line-height:1.45}
-.spec b{color:var(--ink);font-weight:600}
-.spec .k{color:var(--cyan);flex:none;font-size:13px}
-.note{font-size:12px;color:var(--dim);line-height:1.6}
+.navitem{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;font-size:13.3px;
+  color:#A7B2C7;text-align:left;width:100%}
+.navitem:hover{background:rgba(255,255,255,.05);color:#fff}
+.navitem.act{background:rgba(30,123,232,.18);color:#8EC8FF;font-weight:700}
+.navitem .n{font-size:10.5px;width:18px;color:#5E6B85;font-family:var(--mono)}
+.ghead{padding:12px 4px 5px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#5E6B85}
+.item{display:flex;gap:10px;padding:9px 0;font-size:12.7px;color:#A7B2C7;line-height:1.5}
+.item b{color:#fff;font-weight:700}
+.item .k{flex:none;font-weight:800;font-size:11.5px}
+.k-new{color:#6EE7B7}.k-fix{color:#7FD3FF}.k-warn{color:#FCD34D}
+.hr{height:1px;background:var(--panelline)}
+.foot{margin-top:24px;padding-top:14px;border-top:1px solid var(--panelline);font-size:11.5px;color:#7E8BA6;
+  display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
 @media(max-width:640px){
-  .wrap{padding:16px 12px 36px}
-  .masthead h1{font-size:21px}
-  .masthead p{font-size:12.5px}
-  .stage{margin-top:20px;gap:24px}
-  .phone{height:min(788px,calc(100dvh - 190px));min-height:560px;padding:8px;border-radius:34px}
-  .screen{border-radius:27px}
-  .panel{position:static}
-  .key{height:52px}
+  .wrap{padding:16px 12px 30px}.masthead h1{font-size:20px}.masthead p{font-size:12.5px}
+  .stage{margin-top:18px;gap:22px}
+  .phone{height:min(796px,calc(100dvh - 190px));min-height:560px;padding:8px;border-radius:36px}
+  .screen{border-radius:29px}.panel{position:static}.key{height:52px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -179,413 +180,773 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 <div class="wrap">
   <header class="masthead">
     <div class="brandline">
-      <div class="mark">F</div>
+      <div class="mark">🐷</div>
       <div>
         <h1>Family Budget Junior</h1>
-        <p>Prototype cliquable — parcours parent, mode Éveil 0–7 ans et mode Autonomie 8 ans +</p>
+        <p>Prototype V0.3 — convergence avec la maquette cliente, dans le cadre du cahier des charges V1.0</p>
       </div>
     </div>
     <div class="meta">
-      <span class="tag live">v0.1 · maquette</span>
+      <span class="tag live">v0.3</span>
       <span class="tag">données fictives</span>
-      <button class="tag" id="reset" style="cursor:pointer">Réinitialiser</button>
+      <button class="tag" id="reset">Réinitialiser</button>
     </div>
   </header>
 
   <div class="stage">
     <div class="phonecol">
-      <div class="phone">
-        <div class="screen" id="screen">
-          <div class="statusbar"><span class="num">9:41</span><span>Family Budget Junior</span><span class="num">100 %</span></div>
+      <div class="phone"><div class="screen" id="screen"><canvas id="confetti"></canvas>
 
-          <!-- 1. Connexion parent -->
-          <section class="view on" id="v-login">
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px">
-              <div class="stack gap10" style="align-items:center;text-align:center">
-                <div class="mark" style="width:64px;height:64px;border-radius:20px;font-size:30px">F</div>
-                <div class="h-lg" style="margin-top:6px">Family Budget<br>Junior</div>
-                <div class="sub">L'espace parent commande tout.<br>Aucun enfant ne peut créer de compte.</div>
+        <!-- Connexion parent -->
+        <section class="view on" id="v-login">
+          <div class="hdr" style="flex:1;display:flex;flex-direction:column;justify-content:center;border-radius:0;text-align:center;gap:8px">
+            <div style="font-size:62px">🐷</div>
+            <div class="t-lg" style="font-size:30px">Family Budget Junior</div>
+            <div class="sub on-dark" style="margin-bottom:18px">Le parent pilote tout. L'enfant apprend.</div>
+            <div class="col g10" style="text-align:left">
+              <input class="field" type="email" value="claire.moreau@email.fr" aria-label="E-mail parent">
+              <input class="field" type="password" value="••••••••••" aria-label="Mot de passe">
+              <button class="btn b-blue" onclick="go('parentHome')">Se connecter</button>
+              <button class="btn b-ghost" onclick="go('parentHome')">Créer un compte parent</button>
+            </div>
+            <div class="tiny on-dark" style="margin-top:14px">Consentement parental vérifiable à l'inscription.<br>Aucun enfant ne peut créer de compte (RGPD-K / COPPA).</div>
+          </div>
+        </section>
+
+        <!-- Espace parent -->
+        <section class="view" id="v-parentHome">
+          <div class="hdr">
+            <div class="between" style="margin-bottom:16px">
+              <div><div class="eyebrow">Espace parent</div><h2>Bonjour Claire</h2></div>
+              <div style="text-align:right">
+                <div class="tiny on-dark" style="font-weight:700">Cagnotte libre</div>
+                <div class="money" style="color:#34D399;font-size:19px" id="potVal">—</div>
               </div>
-              <div class="stack gap10">
-                <input class="field" type="email" value="claire.moreau@email.fr" aria-label="E-mail parent">
-                <input class="field" type="password" value="••••••••••" aria-label="Mot de passe">
-                <button class="btn btn-primary" onclick="go('parentHome')">Se connecter</button>
-                <button class="btn btn-ghost" onclick="go('parentHome')">Créer un compte parent</button>
-              </div>
-              <div class="tiny" style="text-align:center;line-height:1.6">Vérification parentale requise à l'inscription<br>(RGPD-K / COPPA — Parent-First Onboarding)</div>
             </div>
-          </section>
+            <div class="glass row" style="gap:16px">
+              <svg id="donut" viewBox="0 0 120 120" width="104" height="104" role="img" aria-label="Répartition"></svg>
+              <div class="grow col g6" id="donutLegend"></div>
+            </div>
+          </div>
 
-          <!-- 2. Espace parent -->
-          <section class="view" id="v-parentHome">
-            <div class="between" style="padding:10px 0 16px">
-              <div><div class="eyebrow">Espace parent</div><div class="h-md">Bonjour Claire</div></div>
-              <button class="avatar" style="width:44px;height:44px;border-radius:14px;font-size:18px" onclick="go('parental')" aria-label="Contrôle parental">⚙️</button>
-            </div>
+          <div class="body">
+            <button class="card between" style="text-align:left;background:linear-gradient(135deg,#FFF7ED,#FFEDD5)" onclick="go('queue')">
+              <div><div class="t-md" style="color:#9A3412">À valider</div>
+                <div class="tiny" style="color:#B45309;margin-top:2px">Missions terminées, demandes, dépôts</div></div>
+              <span class="badge" id="queueBadge">0</span>
+            </button>
 
-            <div class="card" style="background:linear-gradient(140deg,rgba(0,245,255,.13),rgba(124,60,255,.16));margin-bottom:16px">
-              <div class="eyebrow">Épargne totale de la famille</div>
-              <div class="balance" style="font-size:36px;margin:6px 0 2px" id="familyTotal">—</div>
-              <div class="tiny">2 profils enfants · <span id="pendingCount">—</span> mission(s) à valider</div>
+            <div class="two">
+              <button class="tile b-green" onclick="prompt2('add')"><span class="ic">➕</span>
+                <div><div class="t-sm">Alimenter</div><div class="tiny on-dark">la cagnotte</div></div></button>
+              <button class="tile b-blue" onclick="prompt2('send')"><span class="ic">📤</span>
+                <div><div class="t-sm">Envoyer</div><div class="tiny on-dark">à un enfant</div></div></button>
             </div>
+            <button class="tile b-amber" onclick="go('missions')"><span class="ic">⚡</span>
+              <div class="grow"><div class="t-sm">Gérer les missions</div>
+                <div class="tiny on-dark" id="missCount">—</div></div>
+              <span style="color:rgba(255,255,255,.55)">→</span></button>
 
-            <div class="eyebrow" style="margin-bottom:9px">Profils enfants</div>
-            <div class="stack gap10" id="kidList"></div>
-
-            <div class="stack gap10" style="margin-top:16px">
-              <button class="btn btn-ghost" onclick="go('addChild')">+ Ajouter un profil enfant</button>
-              <button class="btn btn-violet" onclick="go('childSelect')">Passer en mode enfant</button>
-            </div>
-            <div class="tiny" style="margin-top:14px;line-height:1.6">Le mode enfant se verrouille par code PIN. Le parent garde l'accès à l'historique complet.</div>
-          </section>
-
-          <!-- 3. Ajout enfant -->
-          <section class="view" id="v-addChild">
-            <button class="back" onclick="go('parentHome')">← Espace parent</button>
-            <div class="h-md" style="margin:6px 0 4px">Nouveau profil enfant</div>
-            <div class="sub" style="margin-bottom:16px">Prénom, âge et avatar seulement. Ni nom de famille, ni date de naissance, ni e-mail.</div>
-            <div class="stack gap10">
-              <input class="field" id="nName" placeholder="Prénom ou pseudo" value="Jade">
-              <div class="row gap10">
-                <input class="field num" id="nAge" type="number" min="3" max="17" value="5" style="width:100px">
-                <div class="sub grow" id="modePreview">Âge 5 → interface <b style="color:#c4a6ff">Éveil visuel</b></div>
-              </div>
-              <div class="eyebrow" style="margin-top:6px">Avatar</div>
-              <div class="row gap10" id="avatarPick" style="flex-wrap:wrap"></div>
-              <div class="eyebrow" style="margin-top:6px">Code PIN à 4 chiffres (chiffré sur l'appareil)</div>
-              <input class="field num" id="nPin" maxlength="4" value="2468" style="letter-spacing:.5em;text-align:center">
-              <button class="btn btn-primary" style="margin-top:6px" onclick="createChild()">Créer le profil</button>
-            </div>
-          </section>
-
-          <!-- 4. Contrôle parental -->
-          <section class="view" id="v-parental">
-            <button class="back" onclick="go('parentHome')">← Espace parent</button>
-            <div class="h-md" style="margin:6px 0 16px">Contrôle parental & données</div>
-            <div class="stack gap10" id="controls"></div>
-            <div class="card flat" style="margin-top:16px">
-              <div class="eyebrow">Cadre de l'assistant IA</div>
-              <div class="sub" style="margin-top:7px">Éducation financière ludique uniquement. Pas de conseil d'investissement, pas de sujet adulte, langage modéré. Aucun prénom ni donnée personnelle n'est envoyé au modèle.</div>
-            </div>
-            <div class="stack gap10" style="margin-top:16px">
-              <button class="btn btn-ghost" onclick="toast('Export JSON généré (démo)')">Exporter les données d'un enfant</button>
-              <button class="btn btn-danger" onclick="toast('Suppression définitive — confirmation à 2 étapes')">Supprimer un profil et son historique</button>
-            </div>
-            <div class="tiny" style="margin-top:12px;line-height:1.6">Droit à l'oubli : suppression irréversible du profil, des transactions et des missions.</div>
-          </section>
-
-          <!-- 5. Choix du profil -->
-          <section class="view" id="v-childSelect">
-            <button class="back" onclick="go('parentHome')">← Espace parent</button>
-            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px">
-              <div class="stack gap6" style="text-align:center">
-                <div class="h-lg">Qui se connecte ?</div>
-                <div class="sub">Choisis ton avatar, puis ton code secret.</div>
-              </div>
-              <div class="stack gap10" id="pickList"></div>
-            </div>
-          </section>
-
-          <!-- 6. PIN -->
-          <section class="view" id="v-pin">
-            <button class="back" onclick="go('childSelect')">← Changer de profil</button>
-            <div class="stack gap6" style="align-items:center;margin-top:14px">
-              <div class="avatar" id="pinAvatar" style="width:72px;height:72px;border-radius:24px"></div>
-              <div class="h-md" style="margin-top:8px" id="pinName">—</div>
-              <div class="sub" id="pinHint">Entre ton code à 4 chiffres</div>
-            </div>
-            <div class="pinbox" id="pinBox"><i class="pindot"></i><i class="pindot"></i><i class="pindot"></i><i class="pindot"></i></div>
-            <div class="keypad" id="keypad"></div>
-          </section>
-
-          <!-- 7. Mode Éveil 0-7 -->
-          <section class="view" id="v-kidVisual">
-            <div class="between" style="padding:8px 0 12px">
-              <div class="row gap10"><div class="avatar" id="vAvatar" style="width:42px;height:42px;border-radius:14px"></div>
-                <div class="h-sm" id="vName">—</div></div>
-              <button class="pill c" onclick="go('childSelect')">Sortir</button>
-            </div>
-            <div class="card" style="text-align:center;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(0,230,118,.14),rgba(0,245,255,.10))">
-              <div class="eyebrow">Ma tirelire</div>
-              <div class="balance" style="font-size:46px;margin:8px 0" id="vBalance">—</div>
-              <button id="piggy" style="font-size:74px;line-height:1;filter:drop-shadow(0 0 22px rgba(0,230,118,.55))" aria-label="Ajouter une pièce">🐷</button>
-              <div class="tiny" style="margin-top:8px">Touche la tirelire pour mettre 1 €</div>
-            </div>
-            <div class="stack gap10" style="margin-top:14px">
-              <button class="bigtile" style="background:linear-gradient(120deg,rgba(124,60,255,.22),rgba(124,60,255,.06))" onclick="toast('3 missions imagées à faire')">
-                <div class="ic" style="background:rgba(124,60,255,.3)">⭐</div>
-                <div><div class="h-sm">Mes missions</div><div class="tiny">3 étoiles à gagner</div></div>
-              </button>
-              <button class="bigtile" style="background:linear-gradient(120deg,rgba(0,245,255,.20),rgba(0,245,255,.05))" onclick="toast('Objectif : la trottinette 🛴 — 24 pièces sur 60')">
-                <div class="ic" style="background:rgba(0,245,255,.26)">🛴</div>
-                <div><div class="h-sm">Mon rêve</div><div class="tiny">Presque la moitié !</div></div>
-              </button>
-              <button class="bigtile" style="background:linear-gradient(120deg,rgba(255,42,109,.18),rgba(255,42,109,.05))" onclick="toast('Tu as dépensé 2 € cette semaine')">
-                <div class="ic" style="background:rgba(255,42,109,.26)">🎁</div>
-                <div><div class="h-sm">Mes achats</div><div class="tiny">2 images cette semaine</div></div>
-              </button>
-            </div>
-            <div class="tiny" style="margin-top:14px;text-align:center">Aucun texte long, aucun chiffre complexe, pas d'assistant IA avant 8 ans.</div>
-          </section>
-
-          <!-- 8. Mode Autonomie 8+ -->
-          <section class="view" id="v-kidText">
-            <div class="between" style="padding:8px 0 12px">
-              <div class="row gap10"><div class="avatar" id="tAvatar" style="width:42px;height:42px;border-radius:14px"></div>
-                <div><div class="h-sm" id="tName">—</div><div class="tiny">Mode autonomie</div></div></div>
-              <button class="pill c" onclick="go('childSelect')">Sortir</button>
+            <div>
+              <div class="t-md" style="margin-bottom:10px">Mes enfants 👨‍👩‍👧</div>
+              <div class="col g10" id="kidList"></div>
             </div>
 
-            <div class="card" style="margin-bottom:14px">
-              <div class="between"><div class="eyebrow">Mon solde</div><span class="pill g" id="tWeek">—</span></div>
-              <div class="balance" style="font-size:34px;margin:6px 0 14px" id="tBalance">—</div>
-              <div class="between" style="margin-bottom:6px"><div class="tiny">Objectif : vélo BMX · 120 €</div><div class="tiny num" id="tPct">—</div></div>
-              <div class="bar"><span id="tBar" style="width:0"></span></div>
-              <div class="tiny" style="margin-top:8px">En mettant 5 €/semaine, objectif atteint <b id="tEta" style="color:var(--cyan)">—</b></div>
+            <div class="two">
+              <button class="btn b-plain sm" onclick="go('addChild')">+ Un enfant</button>
+              <button class="btn b-plain sm" onclick="go('parental')">Contrôle parental</button>
             </div>
+            <button class="btn b-violet" onclick="go('childSelect')">Passer en mode enfant</button>
+            <div class="tiny">La cagnotte et les soldes sont un suivi pédagogique. L'application ne déplace aucun argent réel et n'est reliée à aucune banque.</div>
+          </div>
+        </section>
 
-            <button class="btn btn-violet" style="margin-bottom:14px" onclick="go('chat')">Parler à Zéro, mon coach budget</button>
+        <!-- File de validation -->
+        <section class="view" id="v-queue">
+          <div class="hdr"><button class="back" onclick="go('parentHome')">← Espace parent</button>
+            <h2>À valider</h2>
+            <div class="sub on-dark" style="margin-top:4px">Rien n'est crédité avant votre accord.</div></div>
+          <div class="body"><div class="col g10" id="queueList"></div></div>
+        </section>
 
-            <div class="eyebrow" style="margin-bottom:4px">Mes missions</div>
-            <div class="stack" id="tMissions"></div>
-
-            <div class="eyebrow" style="margin:14px 0 2px">Dernières opérations</div>
-            <div class="stack" id="tTx"></div>
-          </section>
-
-          <!-- 9. Chat IA -->
-          <section class="view" id="v-chat">
-            <div class="between" style="padding:8px 0 12px">
-              <button class="back" onclick="go('kidText')">← Retour</button>
-              <span class="pill v">IA · 8 ans et +</span>
+        <!-- Détail enfant -->
+        <section class="view" id="v-detail">
+          <div class="hdr"><button class="back" onclick="go('parentHome')">← Espace parent</button>
+            <div class="row"><span class="av" id="dAv" style="width:52px;height:52px;box-shadow:0 0 0 2.5px #fff"></span>
+              <div class="grow"><h2 id="dName">—</h2><div class="tiny on-dark" id="dMode">—</div></div></div>
+            <div class="glass" style="margin-top:14px">
+              <div class="between" style="margin-bottom:7px">
+                <span class="tiny on-dark" id="dGoalName">—</span>
+                <span class="money" style="font-size:12.5px;color:#fff" id="dGoalNum">—</span></div>
+              <div class="bar on-dark"><span id="dGoalBar" style="width:0"></span></div>
             </div>
-            <div class="stack gap10 grow" id="chatLog" style="overflow-y:auto;padding-bottom:10px"></div>
-            <div class="chips" style="margin:10px 0" id="chatChips"></div>
-            <div class="row gap10">
-              <input class="field grow" id="chatIn" placeholder="Pose ta question…">
-              <button class="btn btn-primary" style="padding:13px 16px" onclick="sendChat()">➤</button>
+          </div>
+          <div class="body">
+            <div class="two">
+              <div class="mini"><div class="tiny">Dépensable</div><div class="money" style="font-size:19px;color:var(--green)" id="dDispo">—</div></div>
+              <div class="mini"><div class="tiny">Mis de côté</div><div class="money" style="font-size:19px;color:var(--indigo)" id="dEpargne">—</div></div>
             </div>
-          </section>
-        </div>
-      </div>
-      <div class="tiny" style="text-align:center;max-width:390px">Maquette interactive — les données sont fictives et restent sur cet appareil. Aucun compte réel, aucun paiement.</div>
+            <div class="two">
+              <button class="btn b-plain sm" onclick="prompt2('send')">Envoyer de l'argent</button>
+              <button class="btn b-plain sm" onclick="go('newMission')">Créer une mission</button>
+            </div>
+            <div class="two">
+              <button class="btn b-plain sm" onclick="go('pocket')">Argent de poche</button>
+              <button class="btn b-plain sm" onclick="resetPin()">Réinitialiser le PIN</button>
+            </div>
+            <div><div class="t-sm" style="margin-bottom:4px">Missions</div><div id="dMissions"></div></div>
+            <div><div class="t-sm" style="margin-bottom:4px">Historique complet</div><div id="dTx"></div></div>
+          </div>
+        </section>
+
+        <!-- Missions (parent) -->
+        <section class="view" id="v-missions">
+          <div class="hdr"><button class="back" onclick="go('parentHome')">← Espace parent</button>
+            <h2>Missions ⚡</h2>
+            <div class="sub on-dark" style="margin-top:4px">Chaque mission porte ses propres conseils, adaptés à l'âge.</div></div>
+          <div class="body">
+            <button class="btn b-blue" onclick="go('newMission')">+ Nouvelle mission</button>
+            <div class="col g10" id="missionList"></div>
+          </div>
+        </section>
+
+        <section class="view" id="v-newMission">
+          <div class="hdr"><button class="back" onclick="go('missions')">← Missions</button><h2>Nouvelle mission</h2></div>
+          <div class="body">
+            <input class="field" id="mT" placeholder="Intitulé" value="Range ta chambre">
+            <div class="row g10">
+              <input class="field mono" id="mR" type="number" step="0.5" value="1" style="width:100px" aria-label="Récompense">
+              <div class="sub grow">euros, crédités après votre validation</div>
+            </div>
+            <div class="row g10">
+              <input class="field mono" id="mA" type="number" min="3" max="17" value="6" style="width:100px" aria-label="Âge minimum">
+              <div class="sub grow">âge minimum pour voir la mission</div>
+            </div>
+            <div><div class="t-sm" style="margin-bottom:6px">Icône</div>
+              <div class="row g6" id="iconPick" style="flex-wrap:wrap"></div></div>
+            <div><div class="t-sm" style="margin-bottom:6px">Conseils affichés à l'enfant</div>
+              <textarea class="field" id="mTips" rows="4" style="resize:none;font-size:13px">Commence par ramasser les vêtements avant les jouets.
+Tire le drap vers les coins pour éviter les plis.
+Range les petits jouets dans une boîte.</textarea>
+              <div class="tiny" style="margin-top:5px">Un conseil par ligne. Rédigés à l'avance, ils ne passent par aucune IA.</div></div>
+            <button class="btn b-blue" onclick="addMission()">Créer la mission</button>
+          </div>
+        </section>
+
+        <!-- Argent de poche -->
+        <section class="view" id="v-pocket">
+          <div class="hdr"><button class="back" onclick="go('detail')">← Retour</button><h2>Argent de poche</h2>
+            <div class="sub on-dark" style="margin-top:4px">Versement automatique. Le seul crédit qui ne passe pas par la validation.</div></div>
+          <div class="body">
+            <div class="row g10"><input class="field mono" id="pA" type="number" step="0.5" value="5" style="width:110px" aria-label="Montant">
+              <div class="sub grow">euros</div></div>
+            <div class="two">
+              <button class="btn b-ghost sm" id="fW" onclick="setFrq('hebdo')">Chaque semaine</button>
+              <button class="btn b-ghost sm" id="fM" onclick="setFrq('mensuel')">Chaque mois</button></div>
+            <div class="card between"><div class="sub">Versement actif</div>
+              <button class="switch on" id="pSw" onclick="togPocket()" aria-label="Activer"></button></div>
+            <button class="btn b-blue" onclick="savePocket()">Enregistrer</button>
+          </div>
+        </section>
+
+        <!-- Ajout enfant -->
+        <section class="view" id="v-addChild">
+          <div class="hdr"><button class="back" onclick="go('parentHome')">← Espace parent</button><h2>Nouveau profil enfant</h2>
+            <div class="sub on-dark" style="margin-top:4px">Prénom, âge et avatar. Rien d'autre n'est collecté.</div></div>
+          <div class="body">
+            <input class="field" id="nN" placeholder="Prénom ou pseudo" value="Jade">
+            <div class="row g10"><input class="field mono" id="nA" type="number" min="3" max="17" value="5" style="width:100px" aria-label="Âge">
+              <div class="sub grow" id="nPrev">Âge 5 → mode <b>Éveil</b></div></div>
+            <div><div class="t-sm" style="margin-bottom:7px">Avatar</div>
+              <div class="row g10" id="avPick" style="flex-wrap:wrap"></div></div>
+            <div><div class="t-sm" style="margin-bottom:6px">Code PIN à 4 chiffres</div>
+              <input class="field mono" id="nP" maxlength="4" value="2468" style="letter-spacing:.45em;text-align:center" aria-label="PIN">
+              <div class="tiny" style="margin-top:5px">Haché sur l'appareil, jamais stocké en clair.</div></div>
+            <button class="btn b-blue" onclick="createChild()">Créer le profil</button>
+          </div>
+        </section>
+
+        <!-- Contrôle parental -->
+        <section class="view" id="v-parental">
+          <div class="hdr"><button class="back" onclick="go('parentHome')">← Espace parent</button><h2>Contrôle parental & données</h2></div>
+          <div class="body">
+            <div class="col g10" id="controls"></div>
+            <div class="card"><div class="t-sm" style="margin-bottom:6px">Cadre de l'assistant</div>
+              <div class="sub">Éducation budgétaire uniquement. Aucun prénom ni donnée personnelle n'est transmis au modèle. Journal consultable.</div></div>
+            <button class="btn b-ghost" onclick="toast('Export JSON + PDF généré (démo)')">Exporter les données d'un enfant</button>
+            <button class="btn b-danger" onclick="toast('Suppression en cascade — double confirmation + e-mail')">Supprimer un profil et son historique</button>
+          </div>
+        </section>
+
+        <!-- Choix profil -->
+        <section class="view" id="v-childSelect">
+          <div class="hdr kid" style="flex:1;display:flex;flex-direction:column;justify-content:center;border-radius:0;text-align:center">
+            <div class="t-lg" style="font-size:28px;margin-bottom:6px">Qui se connecte ?</div>
+            <div class="sub on-dark" style="margin-bottom:22px">Choisis ton avatar, puis ton code secret.</div>
+            <div class="col g10" id="pickList" style="text-align:left"></div>
+            <button class="back" style="margin-top:20px;text-align:center" onclick="go('parentHome')">← Espace parent</button>
+          </div>
+        </section>
+
+        <!-- PIN -->
+        <section class="view" id="v-pin">
+          <div class="hdr kid" style="flex:1;display:flex;flex-direction:column;border-radius:0;align-items:center;padding-bottom:20px">
+            <button class="back" style="align-self:flex-start" onclick="go('childSelect')">← Changer de profil</button>
+            <span class="av" id="pAv" style="width:76px;height:76px;box-shadow:0 0 0 3px #fff;margin-top:6px"></span>
+            <div class="t-md" style="font-size:21px;margin-top:10px" id="pName">—</div>
+            <div class="sub on-dark" id="pHint">Entre ton code à 4 chiffres</div>
+            <div class="pins" id="pins"><i class="pind"></i><i class="pind"></i><i class="pind"></i><i class="pind"></i></div>
+            <div class="keypad" id="keypad" style="width:100%"></div>
+          </div>
+        </section>
+
+        <!-- Mode Éveil -->
+        <section class="view" id="v-eveil">
+          <div class="hdr kid">
+            <div class="row" style="margin-bottom:16px">
+              <span class="av" id="eAv" style="width:46px;height:46px;box-shadow:0 0 0 2.5px #fff"></span>
+              <div class="grow"><div class="tiny on-dark" style="font-weight:700">Salut !</div>
+                <div class="t-md" id="eName">—</div></div>
+              <button class="pill" style="background:rgba(255,255,255,.2);color:#fff" onclick="go('childSelect')">Sortir</button>
+            </div>
+            <div class="glass" style="text-align:center">
+              <div class="tiny on-dark">Ma tirelire</div>
+              <div class="t-lg" style="font-size:40px;margin:4px 0 10px" id="eBal">—</div>
+              <button id="piggy" style="font-size:72px;line-height:1" aria-label="Mettre une pièce">🐷</button>
+              <div class="tiny on-dark" style="margin-top:6px" id="eHint">Touche la tirelire pour demander 1 €</div>
+              <div id="ePend" style="margin-top:9px"></div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="card">
+              <div class="between" style="margin-bottom:7px">
+                <span class="t-sm" id="eGoalName">🎯 Mon rêve</span>
+                <span class="money" style="font-size:13px" id="eGoalNum">—</span></div>
+              <div class="bar"><span id="eGoalBar" style="width:0"></span></div>
+            </div>
+            <button class="tile b-violet" onclick="toast('3 étoiles à gagner aujourd\'hui')"><span class="ic" style="font-size:28px">⭐</span>
+              <div><div class="t-sm">Mes missions</div><div class="tiny on-dark">3 étoiles à gagner</div></div></button>
+            <button class="tile b-blue" onclick="toast('Tu as dépensé 2 € cette semaine')"><span class="ic" style="font-size:28px">🎁</span>
+              <div><div class="t-sm">Mes achats</div><div class="tiny on-dark">2 images cette semaine</div></div></button>
+            <div class="tiny" style="text-align:center">Aucun texte long, aucun chiffre complexe, pas d'assistant avant 8 ans.</div>
+          </div>
+        </section>
+
+        <!-- Mode Autonomie -->
+        <section class="view" id="v-auto">
+          <div class="hdr kid">
+            <div class="row" style="margin-bottom:16px">
+              <span class="av" id="aAv" style="width:46px;height:46px;box-shadow:0 0 0 2.5px #fff"></span>
+              <div class="grow"><div class="tiny on-dark" style="font-weight:700">Salut !</div>
+                <div class="t-md" id="aName">—</div></div>
+              <div style="text-align:right"><div class="money" style="font-size:22px" id="aDispo">—</div>
+                <div class="tiny on-dark">je peux dépenser</div></div>
+            </div>
+            <div class="glass">
+              <div class="between" style="margin-bottom:7px">
+                <span class="tiny on-dark" style="font-weight:700" id="aGoalName">🎯 —</span>
+                <span class="money" style="font-size:12.5px;color:#fff" id="aGoalNum">—</span></div>
+              <div class="bar on-dark"><span id="aGoalBar" style="width:0"></span></div>
+              <div class="tiny on-dark" style="margin-top:7px" id="aEta">—</div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="two">
+              <button class="btn b-plain sm" onclick="allocate()">Mettre 5 € de côté</button>
+              <button class="btn b-plain sm" onclick="go('ask')">Demander</button></div>
+            <button class="tile b-violet" onclick="go('chat')"><span class="ic" style="font-size:24px">🤖</span>
+              <div class="grow"><div class="t-sm">Zéro, mon coach budget</div>
+                <div class="tiny on-dark">Questions d'argent uniquement</div></div></button>
+            <div class="between"><div class="t-md">Missions du jour 📋</div>
+              <span class="pill p-blue" onclick="go('childSelect')" style="cursor:pointer">Sortir</span></div>
+            <div class="col g10" id="aMissions"></div>
+            <div><div class="t-sm" style="margin-bottom:2px">Dernières opérations</div><div id="aTx"></div></div>
+          </div>
+        </section>
+
+        <!-- Bravo -->
+        <section class="view" id="v-bravo">
+          <div class="hdr kid" style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:0;text-align:center;gap:10px">
+            <div style="font-size:74px" id="bIcon">🎉</div>
+            <div class="t-lg" style="font-size:32px">Bravo !</div>
+            <div class="sub on-dark" style="max-width:250px" id="bTxt">—</div>
+            <div class="glass" style="margin-top:8px"><div class="tiny on-dark">En attente de validation</div>
+              <div class="money" style="font-size:26px;color:#FDE68A" id="bAmt">—</div></div>
+            <button class="btn b-ghost" style="margin-top:14px;width:200px" onclick="go('auto')">Continuer</button>
+          </div>
+        </section>
+
+        <!-- Demander -->
+        <section class="view" id="v-ask">
+          <div class="hdr kid"><button class="back" onclick="go('auto')">← Retour</button><h2>Demander de l'argent</h2>
+            <div class="sub on-dark" style="margin-top:4px">Ta demande part chez ton parent.</div></div>
+          <div class="body">
+            <div class="row g10"><input class="field mono" id="qA" type="number" step="0.5" value="8" style="width:110px" aria-label="Montant">
+              <div class="sub grow">euros</div></div>
+            <input class="field" id="qW" placeholder="Pourquoi ?" value="Sortie cinéma samedi">
+            <button class="btn b-blue" onclick="sendAsk()">Envoyer la demande</button>
+            <div class="card"><div class="t-sm" style="margin-bottom:4px">Mes demandes</div><div id="askList"></div></div>
+          </div>
+        </section>
+
+        <!-- Chat -->
+        <section class="view" id="v-chat">
+          <div class="hdr kid" style="padding-bottom:18px"><button class="back" onclick="go('auto')">← Retour</button>
+            <div class="row"><span style="font-size:26px">🤖</span>
+              <div class="grow"><h2>Zéro</h2><div class="tiny on-dark">Coach budget · 8 ans et +</div></div></div></div>
+          <div class="body" style="gap:10px">
+            <div class="col g10 grow" id="chatLog" style="overflow-y:auto"></div>
+            <div class="row g6" id="chips" style="flex-wrap:wrap"></div>
+            <div class="row g10"><input class="field grow" id="chatIn" placeholder="Pose ta question…">
+              <button class="btn b-blue" style="padding:13px 15px" onclick="sendChat()" aria-label="Envoyer">➤</button></div>
+          </div>
+        </section>
+
+      </div></div>
+      <div class="tiny" style="text-align:center;max-width:390px;color:#7E8BA6">Maquette interactive — données fictives, conservées uniquement dans ce navigateur.</div>
     </div>
 
     <aside class="panel">
-      <div class="card">
-        <div class="eyebrow" style="margin-bottom:8px">Parcours</div>
-        <div class="navlist" id="nav"></div>
+      <div class="pcard"><div class="peyebrow">Parcours</div><div class="navlist" id="nav"></div></div>
+
+      <div class="pcard">
+        <div class="peyebrow">Repris de votre maquette</div>
+        <div class="item"><span class="k k-new">+</span><div><b>Cagnotte familiale et camembert</b> de répartition — excellente idée, on voit d'un coup d'œil où va l'argent.</div></div>
+        <div class="hr"></div>
+        <div class="item"><span class="k k-new">+</span><div><b>Conseils par mission</b>, dépliables. Rédigés à l'avance et administrables : de la pédagogie sans exposer l'enfant à une IA générative.</div></div>
+        <div class="hr"></div>
+        <div class="item"><span class="k k-new">+</span><div><b>Écran « Bravo » et confettis</b> à la fin d'une mission, <b>objectif toujours visible</b> dans l'en-tête, <b>missions filtrées par âge</b>.</div></div>
+        <div class="hr"></div>
+        <div class="item"><span class="k k-new">+</span><div><b>Direction visuelle claire</b> — fond clair, Fredoka One, dégradés, chiffres en DM Mono.</div></div>
       </div>
-      <div class="card">
-        <div class="eyebrow" style="margin-bottom:6px">Ce que la maquette démontre</div>
-        <div class="spec"><span class="k">◆</span><div><b>Parent-First</b> — création des profils enfants depuis le seul compte parent vérifié.</div></div>
-        <div class="divider"></div>
-        <div class="spec"><span class="k">◆</span><div><b>Bascule par l'âge</b> — moins de 8 ans → Éveil visuel ; 8 ans et + → Autonomie + IA.</div></div>
-        <div class="divider"></div>
-        <div class="spec"><span class="k">◆</span><div><b>PIN 4 chiffres</b> — connexion enfant sans e-mail (essayez un mauvais code).</div></div>
-        <div class="divider"></div>
-        <div class="spec"><span class="k">◆</span><div><b>Garde-fous IA</b> — posez une question hors budget à Zéro pour voir le refus.</div></div>
-        <div class="divider"></div>
-        <div class="spec"><span class="k">◆</span><div><b>Droit à l'oubli</b> — export et suppression définitive côté parent.</div></div>
+
+      <div class="pcard">
+        <div class="peyebrow">Conservé du cahier des charges</div>
+        <div class="item"><span class="k k-fix">✓</span><div><b>Parent-First</b> — l'enfant ne choisit ni son âge ni son profil ; le parent crée tout.</div></div>
+        <div class="hr"></div>
+        <div class="item"><span class="k k-fix">✓</span><div><b>PIN 4 chiffres</b>, blocage après trois échecs, réinitialisation par le parent.</div></div>
+        <div class="hr"></div>
+        <div class="item"><span class="k k-fix">✓</span><div><b>Validation avant crédit</b> (C1) — « Fait ! » envoie en attente. <b>Détail enfant sans PIN</b> (C2). <b>Tirelire plafonnée</b> (C3).</div></div>
+        <div class="hr"></div>
+        <div class="item"><span class="k k-fix">✓</span><div><b>Avatars en SVG intégrés</b> — aucune URL externe, conformément à votre charte.</div></div>
       </div>
-      <div class="card">
-        <div class="eyebrow" style="margin-bottom:6px">Reste à trancher</div>
-        <div class="note">Packs d'avatars définitifs (licence commerciale) · fournisseur et financement de la clé IA · Firebase ou Supabase · nom de l'assistant · barème des missions.</div>
+
+      <div class="pcard">
+        <div class="peyebrow">Trois points à trancher</div>
+        <div class="item"><span class="k k-warn">1</span><div><b>Argent réel ou virtuel ?</b> Le cahier des charges dit « 100 % virtuel, aucun paiement ». Votre maquette propose carte bancaire, Apple Pay, PayPal et virement vers un Livret A. Les deux ne peuvent pas coexister.</div></div>
+        <div class="hr"></div>
+        <div class="item"><span class="k k-warn">2</span><div><b>Quelle charte ?</b> La charte graphique décrit un thème sombre néon. La maquette est claire et ludique. J'ai suivi la maquette.</div></div>
+        <div class="hr"></div>
+        <div class="item"><span class="k k-warn">3</span><div><b>Combien de tranches d'âge ?</b> Le cahier des charges en prévoit deux, avec bascule à 8 ans. La maquette en propose quatre, sans changement d'interface.</div></div>
       </div>
     </aside>
+  </div>
+
+  <div class="foot">
+    <span>Prototype Family Budget Junior V0.3 — conception et réalisation Andy BARBA.</span>
+    <span>Tous droits réservés. Aucune cession de droits n'est intervenue à ce jour.</span>
   </div>
 </div>
 
 <script>
-/* ---------- avatars (SVG inline, pas d'URL externe) ---------- */
-const PAL=[["#00F5FF","#0A7C8A"],["#7C3CFF","#3B1A7A"],["#00E676","#0A7A45"],["#FF2A6D","#8A0F36"],["#FFB020","#8A5A0A"],["#4D8DFF","#1B3E8A"]];
-function av(i){const[a,b]=PAL[i%6];return `<svg viewBox="0 0 64 64" role="img" aria-label="Avatar"><defs><linearGradient id="g${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="64" height="64" fill="#131B33"/><circle cx="32" cy="26" r="16" fill="url(#g${i})"/><path d="M16 26a16 16 0 0 1 32 0v-4a16 16 0 0 0-32 0z" fill="#0B1020" opacity=".55"/><rect x="20" y="23" width="24" height="9" rx="4.5" fill="#0B1020" opacity=".85"/><circle cx="26.5" cy="27.5" r="2.4" fill="${a}"/><circle cx="37.5" cy="27.5" r="2.4" fill="${a}"/><path d="M12 60c2-11 10-16 20-16s18 5 20 16z" fill="url(#g${i})" opacity=".9"/></svg>`}
+/* ---------- avatars SVG ---------- */
+const PAL=[["#1E7BE8","#4F46E5"],["#7C3AED","#C026D3"],["#059669","#0D9488"],["#DB2777","#F43F5E"],["#D97706","#F59E0B"],["#0284C7","#1D4ED8"]];
+const SKIN=["#F3C9A0","#E0A97C","#C68642","#8D5524","#FFD9B3","#A9714B"];
+function av(i){const[a,b]=PAL[i%6],s=SKIN[i%6];return `<svg viewBox="0 0 64 64" role="img" aria-label="Avatar"><defs><linearGradient id="av${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="64" height="64" fill="url(#av${i})"/><circle cx="32" cy="27" r="14" fill="${s}"/><path d="M18 24a14 14 0 0 1 28 0c0-9-6-13-14-13s-14 4-14 13z" fill="#2B2118"/><circle cx="27" cy="27" r="2" fill="#2B2118"/><circle cx="37" cy="27" r="2" fill="#2B2118"/><path d="M28 33q4 3 8 0" stroke="#2B2118" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M13 62c2-11 9-17 19-17s17 6 19 17z" fill="#FFFFFF" opacity=".92"/></svg>`}
+const ICONS=["🧸","✏️","🍽️","📚","🌿","🧹","🐕","🛏️","🗑️","🎒"];
 
-/* ---------- state ---------- */
-const SEED={children:[
-  {id:1,prenom:"Léa",age:6,av:2,pin:"1234",solde:24,mode:"visuel",ia:false,bloque:false},
-  {id:2,prenom:"Noah",age:10,av:0,pin:"1234",solde:47.5,mode:"texte",ia:true,bloque:false}],
- tx:[{c:2,t:"depot",m:10,d:"Argent de poche",j:"6 sept."},{c:2,t:"bonus",m:3,d:"Mission : lave-vaisselle",j:"4 sept."},
-     {c:2,t:"retrait",m:4.5,d:"Manga tome 12",j:"2 sept."},{c:2,t:"depot",m:5,d:"Anniversaire mamie",j:"30 août"}],
- missions:[{id:1,c:2,titre:"Sortir les poubelles (x3)",rec:2,statut:"en_cours"},
-           {id:2,c:2,titre:"Réviser les tables de 7",rec:3,statut:"validee"},
-           {id:3,c:1,titre:"Ranger les jouets",rec:1,statut:"en_cours"}]};
-let S,cur=null,view="login",pin="";
-const K="fbj-proto-v1";
+/* ---------- état ---------- */
+const SEED={
+ pot:42,
+ children:[
+  {id:1,nom:"Zoé",age:6,av:3,pin:"1234",dispo:8,epargne:0,ia:false,bloque:false,cap:2,dep:0,
+   goal:{nom:"Poupée",cible:45,emo:"🪆"},pocket:{m:3,f:"hebdo",on:true}},
+  {id:2,nom:"Emma",age:8,av:1,pin:"1234",dispo:12.5,epargne:8,ia:true,bloque:false,cap:5,dep:0,
+   goal:{nom:"Vélo rose",cible:120,emo:"🚲"},pocket:{m:4,f:"hebdo",on:true}},
+  {id:3,nom:"Lucas",age:11,av:0,pin:"1234",dispo:22,epargne:34,ia:true,bloque:false,cap:5,dep:0,
+   goal:{nom:"Console",cible:250,emo:"🎮"},pocket:{m:5,f:"hebdo",on:true}}],
+ missions:[
+  {id:1,c:0,titre:"Range ta chambre",ic:"🧸",rec:.5,age:4,statut:"dispo",
+   tips:["Commence par ramasser les vêtements par terre avant les jouets.","Tire le drap bien droit vers les coins pour éviter les plis.","Regroupe les petits jouets dans des boîtes pour gagner de la place."]},
+  {id:2,c:3,titre:"Fais tes devoirs",ic:"✏️",rec:1,age:7,statut:"attente",
+   tips:["Commence par les exercices les plus difficiles quand ton cerveau est frais.","Lis l'énoncé deux fois avant de répondre.","Une pause de 5 min toutes les 30 min aide à mémoriser."]},
+  {id:3,c:0,titre:"Aide à mettre la table",ic:"🍽️",rec:.5,age:4,statut:"dispo",
+   tips:["La fourchette à gauche, le couteau à droite de l'assiette.","Les verres légèrement au-dessus à droite.","N'oublie pas la carafe d'eau."]},
+  {id:4,c:2,titre:"Lis pendant 20 minutes",ic:"📚",rec:.75,age:6,statut:"dispo",
+   tips:["Installe-toi confortablement, avec une bonne lumière.","Si un mot te bloque, devine-le d'après la phrase.","Raconte l'histoire à quelqu'un après : tu retiendras mieux."]},
+  {id:5,c:0,titre:"Arrose les plantes",ic:"🌿",rec:.5,age:5,statut:"dispo",
+   tips:["Touche la terre : si elle est humide, attends demain.","Arrose la racine, pas les feuilles.","De l'eau à température ambiante, pas glacée."]}],
+ tx:[{id:11,c:3,t:"poche",m:5,d:"Argent de poche",j:"28 juil.",s:"ok"},
+     {id:12,c:2,t:"mission",m:.5,d:"Mission : Range ta chambre",j:"27 juil.",s:"ok"},
+     {id:13,c:1,t:"poche",m:3,d:"Argent de poche",j:"25 juil.",s:"ok"},
+     {id:14,c:3,t:"demande",m:8,d:"Sortie cinéma samedi",j:"hier",s:"attente"},
+     {id:15,c:1,t:"tirelire",m:1,d:"Pièce dans la tirelire",j:"hier",s:"attente"}],
+ seq:100};
+const K="fbj-proto-v3";
+let S,cur=null,view="login",pin="",fails=0,frq="hebdo",picIc="🧸",picAv=4;
 try{S=JSON.parse(localStorage.getItem(K))||structuredClone(SEED)}catch(e){S=structuredClone(SEED)}
 function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
 const eur=n=>n.toFixed(2).replace(".",",")+" €";
+const kid=id=>S.children.find(c=>c.id===id);
+const nid=()=>++S.seq;
+const mode=c=>c.age>=8?"auto":"eveil";
+const missionsFor=c=>S.missions.filter(m=>(m.c===0||m.c===c.id)&&c.age>=m.age);
 
-/* ---------- navigation ---------- */
-const VIEWS=[["login","Connexion parent"],["parentHome","Espace parent"],["addChild","Ajouter un enfant"],
- ["parental","Contrôle parental"],["childSelect","Choix du profil"],["pin","Code PIN"],
- ["kidVisual","Mode Éveil · 0–7 ans"],["kidText","Mode Autonomie · 8 ans +"],["chat","Coach IA « Zéro »"]];
+/* ---------- nav ---------- */
+const VIEWS=[["Parent",0],["login","Connexion parent"],["parentHome","Espace parent"],["queue","À valider"],
+ ["detail","Détail enfant (sans PIN)"],["missions","Missions & conseils"],["newMission","Créer une mission"],
+ ["pocket","Argent de poche"],["addChild","Ajouter un enfant"],["parental","Contrôle parental"],
+ ["Enfant",0],["childSelect","Choix du profil"],["pin","Code PIN"],["eveil","Mode Éveil · 3–7 ans"],
+ ["auto","Mode Autonomie · 8–14 ans"],["bravo","Mission envoyée"],["ask","Demander de l'argent"],["chat","Coach « Zéro »"]];
+let nn=0;
+document.getElementById("nav").innerHTML=VIEWS.map(([id,l])=>
+ l===0?`<div class="ghead">${id}</div>`
+ :`<button class="navitem" data-v="${id}" onclick="navTo('${id}')"><span class="n">${String(++nn).padStart(2,"0")}</span>${l}</button>`).join("");
+
 function go(id){
   view=id;
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+id));
   document.querySelectorAll(".navitem").forEach(b=>b.classList.toggle("act",b.dataset.v===id));
-  document.querySelector(".view.on").scrollTop=0;
-  if(id==="parentHome")renderParent();
-  if(id==="parental")renderControls();
-  if(id==="childSelect")renderPick();
-  if(id==="pin"){pin="";drawPin()}
-  if(id==="kidVisual")renderVisual();
-  if(id==="kidText")renderText();
-  if(id==="chat")renderChat();
+  const on=document.querySelector(".view.on"); if(on)on.scrollTop=0;
+  ({parentHome:rParent,queue:rQueue,detail:rDetail,missions:rMissions,parental:rControls,
+    childSelect:rPick,eveil:rEveil,auto:rAuto,ask:rAsk,chat:rChat,pocket:rPocket}[id]||(()=>{}))();
+  if(id==="pin"){pin="";fails=0;drawPin();rPin()}
 }
-document.getElementById("nav").innerHTML=VIEWS.map(([id,l],i)=>
- `<button class="navitem${id===view?" act":""}" data-v="${id}" onclick="navTo('${id}')"><span class="n">${String(i+1).padStart(2,"0")}</span>${l}</button>`).join("");
 function navTo(id){
-  if((id==="kidVisual"||id==="pin")&&!cur)cur=S.children[0];
-  if(id==="kidText"&&(!cur||cur.mode!=="texte"))cur=S.children.find(c=>c.mode==="texte")||S.children[0];
-  if(id==="chat"&&(!cur||cur.mode!=="texte"))cur=S.children.find(c=>c.mode==="texte");
+  if(!cur)cur=S.children[2];
+  if(["auto","ask","chat","bravo"].includes(id)&&mode(cur)!=="auto")cur=S.children.find(c=>mode(c)==="auto");
+  if(id==="eveil"&&mode(cur)!=="eveil")cur=S.children.find(c=>mode(c)==="eveil");
+  if(id==="bravo"){document.getElementById("bIcon").textContent="🎉";
+    document.getElementById("bTxt").textContent="Ta mission part chez ton parent. Dès qu'il l'accepte, l'argent arrive dans ton solde.";
+    document.getElementById("bAmt").textContent=eur(1);}
   go(id);
 }
 
-/* ---------- espace parent ---------- */
-function renderParent(){
-  const tot=S.children.reduce((a,c)=>a+c.solde,0);
-  document.getElementById("familyTotal").textContent=eur(tot);
-  document.getElementById("pendingCount").textContent=S.missions.filter(m=>m.statut==="en_cours").length;
-  document.getElementById("kidList").innerHTML=S.children.map(c=>`
-    <button class="kidcard" onclick="enter(${c.id})">
-      <div class="avatar">${av(c.av)}</div>
-      <div class="grow">
-        <div class="row gap10"><span class="h-sm">${c.prenom}</span>
-          <span class="pill ${c.mode==="visuel"?"v":"c"}">${c.age} ans · ${c.mode==="visuel"?"Éveil":"Autonomie"}</span>
-          ${c.bloque?'<span class="pill p">bloqué</span>':""}</div>
-        <div class="tiny" style="margin-top:3px">${S.missions.filter(m=>m.c===c.id&&m.statut==="en_cours").length} mission(s) en cours</div>
-      </div>
-      <div class="balance num" style="font-size:18px;color:var(--green)">${eur(c.solde)}</div>
-    </button>`).join("");
+/* ---------- camembert ---------- */
+function pc(cx,cy,r,a){const rad=(a-90)*Math.PI/180;return[cx+r*Math.cos(rad),cy+r*Math.sin(rad)]}
+function arc(cx,cy,oR,iR,s,e){const[ax,ay]=pc(cx,cy,oR,s),[bx,by]=pc(cx,cy,oR,e),
+  [cx2,cy2]=pc(cx,cy,iR,s),[dx,dy]=pc(cx,cy,iR,e),f=e-s>180?1:0;
+  return `M${ax} ${ay}A${oR} ${oR} 0 ${f} 1 ${bx} ${by}L${dx} ${dy}A${iR} ${iR} 0 ${f} 0 ${cx2} ${cy2}Z`}
+const COLS=["#F472B6","#A78BFA","#60A5FA","#FBBF24","#34D399","#F87171"];
+function rDonut(){
+  const parts=S.children.map((c,i)=>({lab:c.nom,val:c.dispo+c.epargne,col:COLS[i%6]}));
+  parts.push({lab:"Cagnotte",val:S.pot,col:"#34D399"});
+  const tot=parts.reduce((a,p)=>a+p.val,0)||1;let a=0,d="";
+  parts.forEach(p=>{const sw=p.val/tot*360;if(sw>0.4)d+=`<path d="${arc(60,60,52,33,a,a+sw-1.2)}" fill="${p.col}"/>`;a+=sw});
+  document.getElementById("donut").innerHTML=d+
+    `<text x="60" y="57" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.55)" font-family="Outfit">Total</text>
+     <text x="60" y="70" text-anchor="middle" font-size="13" fill="#fff" font-family="DM Mono" font-weight="500">${Math.round(tot)} €</text>`;
+  document.getElementById("donutLegend").innerHTML=parts.map(p=>
+    `<div class="legend"><span class="sw" style="background:${p.col}"></span>
+      <span style="color:rgba(255,255,255,.8);font-weight:600;flex:1">${p.lab}</span>
+      <span class="money" style="color:#fff;font-size:11.5px">${eur(p.val)}</span></div>`).join("");
 }
-function enter(id){cur=S.children.find(c=>c.id===id);go("pin")}
 
-function renderControls(){
+/* ---------- file d'attente ---------- */
+function pending(){
+  return S.missions.filter(m=>m.statut==="attente").map(m=>({k:"mission",id:m.id,c:m.cBy||3,lib:m.titre,mt:m.rec,ic:m.ic}))
+   .concat(S.tx.filter(t=>t.s==="attente").map(t=>({k:t.t,id:t.id,c:t.c,lib:t.d,mt:t.m,ic:t.t==="demande"?"🙋":"🪙"})));
+}
+function rParent(){
+  document.getElementById("potVal").textContent=eur(S.pot);
+  document.getElementById("queueBadge").textContent=pending().length;
+  document.getElementById("missCount").textContent=S.missions.length+" missions · récompenses à valider";
+  rDonut();
+  document.getElementById("kidList").innerHTML=S.children.map((c,i)=>{
+    const pct=Math.min(100,c.epargne/c.goal.cible*100),p=pending().filter(x=>x.c===c.id).length;
+    return `<button class="kidrow" onclick="openDetail(${c.id})">
+      <span class="av" style="width:46px;height:46px;box-shadow:0 0 0 2.5px ${COLS[i%6]}">${av(c.av)}</span>
+      <div class="grow">
+        <div class="between"><span class="t-sm">${c.nom} · ${c.age} ans</span>
+          <span class="money" style="font-size:13.5px;color:${COLS[i%6]}">${eur(c.dispo)}</span></div>
+        <div class="row g6" style="margin:3px 0 5px"><span style="font-size:12px">${c.goal.emo}</span>
+          <span class="tiny" style="color:var(--ink-2);font-weight:600">${c.goal.nom}</span>
+          <span class="tiny" style="margin-left:auto">${Math.round(pct)} %</span></div>
+        <div class="bar" style="height:7px"><span style="width:${pct}%"></span></div>
+        ${p?`<div class="tiny" style="color:var(--amber);font-weight:700;margin-top:5px">${p} à valider</div>`:""}
+      </div></button>`}).join("");
+}
+function rQueue(){
+  const it=pending();
+  document.getElementById("queueList").innerHTML=it.length?it.map(i=>{
+    const c=kid(i.c)||S.children[2];
+    const lab={mission:"Mission terminée",demande:"Demande d'argent",tirelire:"Dépôt tirelire"}[i.k];
+    return `<div class="card">
+      <div class="row" style="margin-bottom:11px"><span style="font-size:24px">${i.ic}</span>
+        <div class="grow"><div class="t-sm">${i.lib}</div><div class="tiny">${c.nom} · ${lab}</div></div>
+        <span class="money" style="font-size:15px;color:var(--amber)">${eur(i.mt)}</span></div>
+      <div class="two"><button class="btn b-green sm" onclick="decide('${i.k}',${i.id},1)">Approuver</button>
+        <button class="btn b-danger sm" onclick="decide('${i.k}',${i.id},0)">Refuser</button></div></div>`}).join("")
+   :'<div class="card"><div class="sub">Rien à valider pour l\'instant.</div></div>';
+}
+function decide(k,id,ok){
+  if(k==="mission"){const m=S.missions.find(x=>x.id===id),c=kid(m.cBy||3);
+    if(ok){m.statut="dispo";
+      if(S.pot>=m.rec){S.pot-=m.rec;c.dispo+=m.rec;
+        S.tx.unshift({id:nid(),c:c.id,t:"mission",m:m.rec,d:"Mission : "+m.titre,j:"aujourd'hui",s:"ok"})}
+      else return toast("Cagnotte insuffisante — alimentez-la d'abord")}
+    else m.statut="dispo";
+  }else{const t=S.tx.find(x=>x.id===id),c=kid(t.c);
+    if(ok){if(S.pot<t.m)return toast("Cagnotte insuffisante — alimentez-la d'abord");
+      S.pot-=t.m;t.s="ok";c.dispo+=t.m}else t.s="refus"}
+  save();rQueue();toast(ok?"Approuvé · montant crédité":"Refusé · rien n'a été crédité");
+}
+
+/* ---------- cagnotte ---------- */
+function prompt2(kind){
+  if(kind==="add"){S.pot+=20;save();rParent();toast("20 € ajoutés à la cagnotte (suivi, aucun paiement réel)")}
+  else{const c=cur||S.children[2];
+    if(S.pot<5)return toast("Cagnotte insuffisante");
+    S.pot-=5;c.dispo+=5;S.tx.unshift({id:nid(),c:c.id,t:"envoi",m:5,d:"Envoyé par le parent",j:"aujourd'hui",s:"ok"});
+    save();rParent();toast("5 € envoyés à "+c.nom)}
+}
+
+/* ---------- détail enfant ---------- */
+function openDetail(id){cur=kid(id);go("detail")}
+function rDetail(){
+  const i=S.children.indexOf(cur),pct=Math.min(100,cur.epargne/cur.goal.cible*100);
+  document.getElementById("dAv").innerHTML=av(cur.av);
+  document.getElementById("dName").textContent=cur.nom;
+  document.getElementById("dMode").textContent=cur.age+" ans · mode "+(mode(cur)==="eveil"?"Éveil":"Autonomie")+" · PIN actif";
+  document.getElementById("dGoalName").textContent=cur.goal.emo+" "+cur.goal.nom;
+  document.getElementById("dGoalNum").textContent=eur(cur.epargne)+" / "+eur(cur.goal.cible);
+  document.getElementById("dGoalBar").style.width=pct+"%";
+  document.getElementById("dDispo").textContent=eur(cur.dispo);
+  document.getElementById("dEpargne").textContent=eur(cur.epargne);
+  document.getElementById("dMissions").innerHTML=missionsFor(cur).map(m=>`
+    <div class="tx"><div class="dotic" style="background:#EEF2FF">${m.ic}</div>
+      <div class="grow"><div class="t-sm" style="font-size:13.5px">${m.titre}</div>
+        <div class="tiny">${m.statut==="attente"?"en attente de votre accord":"disponible"}</div></div>
+      <span class="money" style="font-size:13px">${eur(m.rec)}</span></div>`).join("")||'<div class="tiny">Aucune mission.</div>';
+  document.getElementById("dTx").innerHTML=txHtml(cur.id,99);
+}
+function txHtml(cid,lim){
+  const r=S.tx.filter(t=>t.c===cid).slice(0,lim);
+  return r.map(t=>{const w=t.s==="attente",neg=t.t==="sortie";
+    const bg=w?"#FEF3C7":neg?"#FEE2E2":t.t==="mission"?"#EDE9FE":"#D1FAE5";
+    const fg=w?"var(--amber)":t.s==="refus"?"var(--ink-3)":neg?"var(--red)":"var(--green)";
+    return `<div class="tx"><div class="dotic" style="background:${bg}">${w?"⏳":neg?"↑":t.t==="mission"?"⚡":"↓"}</div>
+      <div class="grow"><div class="t-sm" style="font-size:13.5px">${t.d}</div>
+        <div class="tiny">${t.j}${w?" · en attente":t.s==="refus"?" · refusé":""}</div></div>
+      <span class="money" style="font-size:13px;color:${fg}">${neg?"−":"+"}${eur(t.m)}</span></div>`}).join("")
+   ||'<div class="tiny">Aucune opération.</div>';
+}
+function resetPin(){cur.bloque=false;save();toast("PIN réinitialisé à 1234 · profil débloqué")}
+
+/* ---------- missions parent ---------- */
+function rMissions(){
+  document.getElementById("missionList").innerHTML=S.missions.map(m=>`
+    <div class="card"><div class="row">
+      <span style="font-size:26px">${m.ic}</span>
+      <div class="grow"><div class="t-sm">${m.titre}</div>
+        <div class="tiny">${m.c===0?"Tous les enfants":"1 enfant"} · dès ${m.age} ans</div></div>
+      <span class="money" style="font-size:14px;color:var(--green)">${eur(m.rec)}</span></div>
+      <div class="tips"><button class="tipbtn" onclick="tog2(this)">💡 ${m.tips.length} conseils <span>▾</span></button>
+        <ul class="tiplist" hidden>${m.tips.map(t=>`<li>${t}</li>`).join("")}</ul></div></div>`).join("");
+}
+function tog2(b){const l=b.parentElement.querySelector("ul");l.hidden=!l.hidden;b.querySelector("span").textContent=l.hidden?"▾":"▴"}
+document.getElementById("iconPick").innerHTML=ICONS.map((ic,i)=>
+  `<button class="btn b-ghost sm" data-i="${ic}" onclick="pickIc('${ic}')" style="font-size:19px;padding:8px 10px${i===0?";box-shadow:inset 0 0 0 2px var(--blue)":""}">${ic}</button>`).join("");
+function pickIc(ic){picIc=ic;document.querySelectorAll("#iconPick button").forEach(b=>
+  b.style.boxShadow=b.dataset.i===ic?"inset 0 0 0 2px var(--blue)":"inset 0 0 0 1.5px #E5E7EB")}
+function addMission(){
+  const t=document.getElementById("mT").value.trim()||"Mission",r=+document.getElementById("mR").value||.5,
+    a=+document.getElementById("mA").value||4,
+    tips=document.getElementById("mTips").value.split("\n").map(x=>x.trim()).filter(Boolean);
+  S.missions.push({id:nid(),c:0,titre:t,ic:picIc,rec:r,age:a,statut:"dispo",tips});
+  save();go("missions");toast("Mission créée avec "+tips.length+" conseils");
+}
+
+/* ---------- argent de poche ---------- */
+function setFrq(f){frq=f;document.getElementById("fW").style.boxShadow=f==="hebdo"?"inset 0 0 0 2px var(--blue)":"inset 0 0 0 1.5px #E5E7EB";
+  document.getElementById("fM").style.boxShadow=f==="mensuel"?"inset 0 0 0 2px var(--blue)":"inset 0 0 0 1.5px #E5E7EB"}
+function rPocket(){document.getElementById("pA").value=cur.pocket.m;frq=cur.pocket.f;setFrq(frq);
+  document.getElementById("pSw").classList.toggle("on",cur.pocket.on)}
+function togPocket(){cur.pocket.on=!cur.pocket.on;document.getElementById("pSw").classList.toggle("on",cur.pocket.on);save()}
+function savePocket(){cur.pocket={m:+document.getElementById("pA").value||0,f:frq,on:cur.pocket.on};save();
+  go("detail");toast("Versement "+(cur.pocket.on?frq:"en pause")+" enregistré")}
+
+/* ---------- contrôle parental ---------- */
+function rControls(){
   document.getElementById("controls").innerHTML=S.children.map(c=>`
-    <div class="card flat">
-      <div class="row gap10" style="margin-bottom:10px"><div class="avatar" style="width:38px;height:38px;border-radius:12px">${av(c.av)}</div>
-        <div class="grow"><div class="h-sm">${c.prenom}</div><div class="tiny">${c.age} ans · mode ${c.mode}</div></div></div>
-      <div class="between" style="padding:7px 0"><div class="sub">Assistant IA ${c.age<8?"<span class='tiny'>(indisponible avant 8 ans)</span>":""}</div>
-        <button class="switch ${c.ia&&c.age>=8?"on":""}" ${c.age<8?"disabled style='opacity:.35'":`onclick="tog(${c.id},'ia')"`} aria-label="Activer l'IA"></button></div>
-      <div class="between" style="padding:7px 0"><div class="sub">Bloquer temporairement le profil</div>
-        <button class="switch ${c.bloque?"on":""}" onclick="tog(${c.id},'bloque')" aria-label="Bloquer le profil"></button></div>
+    <div class="card">
+      <div class="row" style="margin-bottom:9px"><span class="av" style="width:38px;height:38px">${av(c.av)}</span>
+        <div class="grow"><div class="t-sm">${c.nom}</div><div class="tiny">${c.age} ans · mode ${mode(c)==="eveil"?"Éveil":"Autonomie"}</div></div></div>
+      <div class="between" style="padding:6px 0"><div class="sub">Assistant IA${c.age<8?' <span class="tiny">(dès 8 ans)</span>':""}</div>
+        <button class="switch ${c.ia&&c.age>=8?"on":""}" ${c.age<8?'disabled style="opacity:.35"':`onclick="tog(${c.id},'ia')"`} aria-label="IA"></button></div>
+      <div class="between" style="padding:6px 0"><div class="sub">Bloquer le profil</div>
+        <button class="switch ${c.bloque?"on":""}" onclick="tog(${c.id},'bloque')" aria-label="Bloquer"></button></div>
+      <div class="between" style="padding:6px 0"><div class="sub">Plafond de dépôt / jour</div>
+        <div class="row g6"><button class="pill p-blue" onclick="cap(${c.id},-1)">−</button>
+          <span class="money" style="font-size:13px;min-width:48px;text-align:center">${eur(c.cap)}</span>
+          <button class="pill p-blue" onclick="cap(${c.id},1)">+</button></div></div>
     </div>`).join("");
 }
-function tog(id,k){const c=S.children.find(x=>x.id===id);c[k]=!c[k];save();renderControls();
-  toast(k==="ia"?(c.ia?"Assistant IA activé pour "+c.prenom:"Assistant IA désactivé"):(c.bloque?c.prenom+" ne peut plus se connecter":"Profil réactivé"))}
+function tog(id,k){const c=kid(id);c[k]=!c[k];save();rControls();
+  toast(k==="ia"?(c.ia?"Assistant activé pour "+c.nom:"Assistant désactivé"):(c.bloque?c.nom+" ne peut plus se connecter":"Profil réactivé"))}
+function cap(id,d){const c=kid(id);c.cap=Math.max(0,c.cap+d);save();rControls()}
 
 /* ---------- ajout enfant ---------- */
-let pickedAv=3;
-document.getElementById("avatarPick").innerHTML=[0,1,2,3,4,5].map(i=>
-  `<button class="avatar" data-a="${i}" onclick="pickAv(${i})" style="${i===3?"border-color:var(--cyan);box-shadow:0 0 0 2px rgba(0,245,255,.35)":""}">${av(i)}</button>`).join("");
-function pickAv(i){pickedAv=i;document.querySelectorAll("#avatarPick .avatar").forEach(b=>{
-  const on=+b.dataset.a===i;b.style.borderColor=on?"var(--cyan)":"";b.style.boxShadow=on?"0 0 0 2px rgba(0,245,255,.35)":""})}
-document.getElementById("nAge").addEventListener("input",e=>{
-  const a=+e.target.value||0;
-  document.getElementById("modePreview").innerHTML=`Âge ${a} → interface <b style="color:${a>=8?"var(--cyan)":"#c4a6ff"}">${a>=8?"Autonomie + IA":"Éveil visuel"}</b>`});
+document.getElementById("avPick").innerHTML=[0,1,2,3,4,5].map(i=>
+  `<button class="av" data-a="${i}" onclick="pickAv(${i})" style="width:52px;height:52px;box-shadow:0 0 0 ${i===4?"3px var(--blue)":"2px #E5E7EB"}">${av(i)}</button>`).join("");
+function pickAv(i){picAv=i;document.querySelectorAll("#avPick .av").forEach(b=>
+  b.style.boxShadow=+b.dataset.a===i?"0 0 0 3px var(--blue)":"0 0 0 2px #E5E7EB")}
+document.getElementById("nA").addEventListener("input",e=>{const a=+e.target.value||0;
+  document.getElementById("nPrev").innerHTML=`Âge ${a} → mode <b style="color:${a>=8?"var(--blue)":"var(--violet)"}">${a>=8?"Autonomie":"Éveil"}</b>`});
 function createChild(){
-  const n=document.getElementById("nName").value.trim()||"Enfant",a=+document.getElementById("nAge").value||5,
-        p=(document.getElementById("nPin").value||"0000").slice(0,4);
-  S.children.push({id:Date.now(),prenom:n,age:a,av:pickedAv,pin:p,solde:0,mode:a>=8?"texte":"visuel",ia:a>=8,bloque:false});
-  save();go("parentHome");toast(n+" a été ajouté·e")}
+  const n=document.getElementById("nN").value.trim()||"Enfant",a=+document.getElementById("nA").value||5;
+  S.children.push({id:nid(),nom:n,age:a,av:picAv,pin:(document.getElementById("nP").value||"0000").slice(0,4),
+    dispo:0,epargne:0,ia:a>=8,bloque:false,cap:2,dep:0,goal:{nom:"Mon objectif",cible:50,emo:"🎯"},
+    pocket:{m:0,f:"hebdo",on:false}});
+  save();go("parentHome");toast(n+" a été ajouté·e");
+}
 
-/* ---------- choix profil + PIN ---------- */
-function renderPick(){
-  document.getElementById("pickList").innerHTML=S.children.map(c=>`
-    <button class="kidcard" onclick="enter(${c.id})" ${c.bloque?'style="opacity:.45"':""}>
-      <div class="avatar" style="width:56px;height:56px;border-radius:18px">${av(c.av)}</div>
-      <div class="grow"><div class="h-md">${c.prenom}</div>
+/* ---------- profil + PIN ---------- */
+function rPick(){
+  document.getElementById("pickList").innerHTML=S.children.map((c,i)=>`
+    <button class="kidrow" onclick="enter(${c.id})" ${c.bloque?'style="opacity:.5"':""}>
+      <span class="av" style="width:52px;height:52px;box-shadow:0 0 0 2.5px ${COLS[i%6]}">${av(c.av)}</span>
+      <div class="grow"><div class="t-md">${c.nom}</div>
         <div class="tiny">${c.bloque?"Profil bloqué par le parent":"Code à 4 chiffres"}</div></div>
-      <span style="color:var(--cyan);font-size:20px">›</span></button>`).join("")}
+      <span style="color:var(--blue);font-size:19px">›</span></button>`).join("");
+}
+function enter(id){cur=kid(id);go("pin")}
+function rPin(){document.getElementById("pAv").innerHTML=av(cur.av);
+  document.getElementById("pName").textContent=cur.nom;
+  document.getElementById("pHint").textContent="Entre ton code à 4 chiffres"}
 document.getElementById("keypad").innerHTML=[1,2,3,4,5,6,7,8,9,"",0,"⌫"].map(k=>
   k===""?'<div class="key blank"></div>':`<button class="key" onclick="tap('${k}')">${k}</button>`).join("");
-function drawPin(err){document.querySelectorAll("#pinBox .pindot").forEach((d,i)=>{
-  d.className="pindot"+(err?" err":(i<pin.length?" f":""))})}
+function drawPin(e){document.querySelectorAll("#pins .pind").forEach((d,i)=>
+  d.className="pind"+(e?" err":(i<pin.length?" f":"")))}
 function tap(k){
   if(k==="⌫"){pin=pin.slice(0,-1);return drawPin()}
-  if(pin.length>=4)return; pin+=k; drawPin();
+  if(pin.length>=4)return;pin+=k;drawPin();
   if(pin.length===4)setTimeout(()=>{
-    if(cur.bloque){drawPin(true);document.getElementById("pinHint").textContent="Profil bloqué par le parent";pin="";return setTimeout(drawPin,900)}
-    if(pin===cur.pin){go(cur.mode==="visuel"?"kidVisual":"kidText")}
-    else{drawPin(true);document.getElementById("pinHint").textContent="Code incorrect, réessaie";
+    const h=document.getElementById("pHint");
+    if(cur.bloque){drawPin(1);h.textContent="Profil bloqué — demande à ton parent";pin="";return setTimeout(drawPin,900)}
+    if(pin===cur.pin){fails=0;go(mode(cur))}
+    else{fails++;drawPin(1);
+      if(fails>=3){h.textContent="3 essais ratés — bloqué 5 minutes.";cur.bloque=true;save()}
+      else h.textContent="Code incorrect ("+(3-fails)+" essai"+(3-fails>1?"s":"")+" restant"+(3-fails>1?"s":"")+")";
       if(navigator.vibrate)navigator.vibrate(80);pin="";setTimeout(drawPin,900)}},130)}
 
-/* ---------- mode Éveil ---------- */
-function renderVisual(){
-  document.getElementById("vAvatar").innerHTML=av(cur.av);
-  document.getElementById("vName").textContent=cur.prenom;
-  document.getElementById("vBalance").textContent=Math.round(cur.solde)+" €";
-  document.getElementById("pinAvatar").innerHTML=av(cur.av);
+/* ---------- Éveil ---------- */
+function rEveil(){
+  const pct=Math.min(100,cur.epargne/cur.goal.cible*100);
+  document.getElementById("eAv").innerHTML=av(cur.av);
+  document.getElementById("eName").textContent=cur.nom;
+  document.getElementById("eBal").textContent=Math.round(cur.dispo)+" €";
+  document.getElementById("eGoalName").textContent=cur.goal.emo+" "+cur.goal.nom;
+  document.getElementById("eGoalNum").textContent=eur(cur.epargne)+" / "+eur(cur.goal.cible);
+  document.getElementById("eGoalBar").style.width=pct+"%";
+  const w=S.tx.filter(t=>t.c===cur.id&&t.t==="tirelire"&&t.s==="attente").length;
+  document.getElementById("ePend").innerHTML=w?`<span class="pill p-amber">${w} pièce${w>1?"s":""} en attente</span>`:"";
+  document.getElementById("eHint").textContent=cur.dep>=cur.cap?"Plafond du jour atteint — à demain !":"Touche la tirelire pour demander 1 €";
 }
-document.getElementById("piggy").addEventListener("click",e=>{
-  cur.solde+=1;save();document.getElementById("vBalance").textContent=Math.round(cur.solde)+" €";
-  const c=document.createElement("span");c.className="coin";c.textContent="🪙";
-  c.style.left="calc(50% - 13px)";c.style.top="96px";e.target.parentElement.appendChild(c);
-  setTimeout(()=>c.remove(),760)});
+document.getElementById("piggy").addEventListener("click",()=>{
+  if(cur.dep>=cur.cap)return toast("Plafond quotidien atteint ("+eur(cur.cap)+")");
+  cur.dep++;S.tx.unshift({id:nid(),c:cur.id,t:"tirelire",m:1,d:"Pièce dans la tirelire",j:"aujourd'hui",s:"attente"});
+  save();rEveil();toast("Envoyé à ton parent · la pièce arrive après son accord")});
 
-/* ---------- mode Autonomie ---------- */
-function renderText(){
-  document.getElementById("tAvatar").innerHTML=av(cur.av);
-  document.getElementById("tName").textContent=cur.prenom;
-  document.getElementById("tBalance").textContent=eur(cur.solde);
-  const pct=Math.min(100,cur.solde/120*100);
-  document.getElementById("tPct").textContent=Math.round(pct)+" %";
-  document.getElementById("tBar").style.width=pct+"%";
-  const sem=Math.ceil(Math.max(0,120-cur.solde)/5);
-  const d=new Date(2026,8,9+sem*7);
-  document.getElementById("tEta").textContent="dans "+sem+" semaines ("+d.toLocaleDateString("fr-FR",{day:"numeric",month:"long"})+")";
-  document.getElementById("tWeek").textContent="+ "+eur(13)+" cette semaine";
-  document.getElementById("tMissions").innerHTML=S.missions.filter(m=>m.c===cur.id).map(m=>`
-    <div class="card flat" style="margin-top:8px"><div class="between">
-      <div class="grow"><div class="h-sm">${m.titre}</div>
-        <div class="tiny" style="margin-top:2px">Récompense ${eur(m.rec)}</div></div>
-      ${m.statut==="validee"?'<span class="pill g">Validée</span>':
-        `<button class="pill c" onclick="claim(${m.id})">J'ai fini</button>`}
-    </div></div>`).join("")||'<div class="tiny">Aucune mission pour l\'instant.</div>';
-  document.getElementById("tTx").innerHTML=S.tx.filter(t=>t.c===cur.id).map(t=>`
-    <div class="txt"><div class="dot ${t.t==="depot"?"in":t.t==="retrait"?"out":"bonus"}">${t.t==="depot"?"↓":t.t==="retrait"?"↑":"★"}</div>
-      <div class="grow"><div style="font-size:13.5px;font-weight:600">${t.d}</div><div class="tiny">${t.j}</div></div>
-      <div class="num" style="font-weight:700;color:${t.t==="retrait"?"var(--pink)":"var(--green)"}">${t.t==="retrait"?"−":"+"}${eur(t.m)}</div></div>`).join("");
+/* ---------- Autonomie ---------- */
+function rAuto(){
+  const pct=Math.min(100,cur.epargne/cur.goal.cible*100);
+  document.getElementById("aAv").innerHTML=av(cur.av);
+  document.getElementById("aName").textContent=cur.nom;
+  document.getElementById("aDispo").textContent=eur(cur.dispo);
+  document.getElementById("aGoalName").textContent=cur.goal.emo+" "+cur.goal.nom;
+  document.getElementById("aGoalNum").textContent=eur(cur.epargne)+" / "+eur(cur.goal.cible);
+  document.getElementById("aGoalBar").style.width=pct+"%";
+  const sem=Math.ceil(Math.max(0,cur.goal.cible-cur.epargne)/5);
+  document.getElementById("aEta").textContent=sem?`${Math.round(pct)} % · à 5 €/semaine, atteint dans ${sem} semaines`:"Objectif atteint !";
+  document.getElementById("aMissions").innerHTML=missionsFor(cur).map(m=>`
+    <div class="card"><div class="row">
+      <span style="font-size:24px">${m.ic}</span>
+      <div class="grow"><div class="t-sm">${m.titre}</div>
+        <div class="money" style="color:var(--green);font-size:12.5px">+${eur(m.rec)}</div></div>
+      ${m.statut==="attente"?'<span class="pill p-amber">En attente</span>'
+        :`<button class="btn b-blue sm" onclick="claim(${m.id})">Fait !</button>`}</div>
+      <div class="tips"><button class="tipbtn" onclick="tog2(this)">💡 Des conseils pour y arriver <span>▾</span></button>
+        <ul class="tiplist" hidden>${m.tips.map(t=>`<li>${t}</li>`).join("")}</ul></div></div>`).join("")
+    ||'<div class="tiny">Aucune mission pour ton âge.</div>';
+  document.getElementById("aTx").innerHTML=txHtml(cur.id,5);
 }
-function claim(id){const m=S.missions.find(x=>x.id===id);m.statut="validee";cur.solde+=m.rec;
-  S.tx.unshift({c:cur.id,t:"bonus",m:m.rec,d:"Mission : "+m.titre,j:"aujourd'hui"});save();renderText();
-  toast("Mission envoyée au parent · +"+eur(m.rec))}
+function claim(id){
+  const m=S.missions.find(x=>x.id===id);m.statut="attente";m.cBy=cur.id;save();
+  document.getElementById("bIcon").textContent=m.ic;
+  document.getElementById("bTxt").textContent="« "+m.titre+" » part chez ton parent. Dès qu'il accepte, l'argent arrive dans ton solde.";
+  document.getElementById("bAmt").textContent=eur(m.rec);
+  go("bravo");confetti();
+}
+function allocate(){
+  if(cur.dispo<5)return toast("Il te faut au moins 5 € dépensables");
+  cur.dispo-=5;cur.epargne+=5;
+  S.tx.unshift({id:nid(),c:cur.id,t:"sortie",m:5,d:"Mis de côté pour "+cur.goal.nom,j:"aujourd'hui",s:"ok"});
+  save();rAuto();toast("5 € mis de côté · ils ne sont plus dépensables");
+  if(cur.epargne>=cur.goal.cible)confetti();
+}
 
-/* ---------- coach IA (maquette) ---------- */
-const SUJETS=["budget","épargne","économis","argent","euro","dépens","achat","mission","tirelire","prix","cher","coûte","payer","vélo","objectif","banque","monnaie","cadeau"];
-const REPS=[
- "Bonne question ! Ton vélo coûte 120 € et tu as déjà 47,50 €. Si tu mets 5 € de côté chaque semaine, il te reste 15 semaines. En ajoutant une mission à 3 €, tu gagnes 4 semaines.",
- "Astuce : sépare ton argent en trois parts — une pour dépenser tout de suite, une pour ton objectif, une petite pour offrir. Beaucoup de gens font 50 / 40 / 10.",
- "Avant d'acheter, attends une nuit. Si tu y penses encore le lendemain, c'est sûrement une vraie envie. Sinon tu viens d'économiser !",
- "Un budget, c'est juste un plan : combien j'ai, combien je veux garder, combien je peux dépenser. Tu veux qu'on écrive le tien pour le mois ?"];
+/* ---------- demandes ---------- */
+function rAsk(){
+  const l=S.tx.filter(t=>t.c===cur.id&&t.t==="demande");
+  document.getElementById("askList").innerHTML=l.map(t=>`
+    <div class="tx"><div class="dotic" style="background:${t.s==="attente"?"#FEF3C7":t.s==="refus"?"#FEE2E2":"#D1FAE5"}">${t.s==="attente"?"⏳":t.s==="refus"?"✕":"✓"}</div>
+      <div class="grow"><div class="t-sm" style="font-size:13.5px">${t.d}</div>
+        <div class="tiny">${t.j} · ${t.s==="attente"?"en attente":t.s==="refus"?"refusée":"acceptée"}</div></div>
+      <span class="money" style="font-size:13px">${eur(t.m)}</span></div>`).join("")||'<div class="tiny">Aucune demande.</div>';
+}
+function sendAsk(){
+  const m=+document.getElementById("qA").value||0,w=document.getElementById("qW").value.trim()||"Sans motif";
+  if(m<=0)return toast("Indique un montant");
+  S.tx.unshift({id:nid(),c:cur.id,t:"demande",m,d:w,j:"aujourd'hui",s:"attente"});
+  save();rAsk();toast("Demande envoyée · ton parent va la recevoir");
+}
+
+/* ---------- coach ---------- */
+const SUJ=["budget","épargn","epargn","economis","économis","argent","euro","dépens","depens","achat","mission","tirelire","prix","cher","coûte","coute","payer","vélo","velo","objectif","banque","monnaie","cadeau","poche","console"];
+const REP=["Ton objectif coûte "+"120 €"+" et tu as déjà mis de côté une partie. À 5 € par semaine tu y arrives — et chaque mission validée raccourcit le délai.",
+ "Sépare ton argent en trois : une part pour tout de suite, une pour ton objectif, une petite pour offrir. Beaucoup de gens font 50 / 40 / 10.",
+ "Avant d'acheter, attends une nuit. Si tu y penses encore demain, c'est une vraie envie. Sinon tu viens d'économiser.",
+ "Un budget, c'est un plan : ce que j'ai, ce que je garde, ce que je peux dépenser. On écrit le tien pour le mois ?"];
 let ri=0;
-function renderChat(){
-  if(cur&&!cur.ia){document.getElementById("chatLog").innerHTML=
-    '<div class="msg guard">L\'assistant a été désactivé par ton parent. Tu peux quand même suivre ton solde et tes missions.</div>';
-    document.getElementById("chatChips").innerHTML="";return}
-  document.getElementById("chatLog").innerHTML=
-   `<div class="msg ai">Salut ${cur?cur.prenom:""} ! Je suis Zéro, ton coach budget. Je parle d'argent de poche, d'épargne et de projets — rien d'autre.</div>`;
-  document.getElementById("chatChips").innerHTML=
-   ["Comment épargner plus vite ?","C'est quoi un budget ?","Je peux m'acheter un jeu ?"]
-   .map(q=>`<button class="chip" onclick="ask('${q.replace(/'/g,"\\'")}')">${q}</button>`).join("");
+function rChat(){
+  const log=document.getElementById("chatLog"),ch=document.getElementById("chips");
+  if(cur&&!cur.ia){log.innerHTML='<div class="msg m-guard">L\'assistant a été désactivé par ton parent. Tu peux quand même suivre ton solde et tes missions.</div>';ch.innerHTML="";return}
+  log.innerHTML=`<div class="msg m-ai">Salut ${cur?cur.nom:""} ! Je suis Zéro. Je parle d'argent de poche, d'épargne et de projets — rien d'autre.</div>`;
+  ch.innerHTML=["Comment épargner plus vite ?","C'est quoi un budget ?","Je peux m'acheter un jeu ?"]
+    .map(q=>`<button class="chip" onclick="ask(this.textContent)">${q}</button>`).join("");
 }
-function push(cls,t){const l=document.getElementById("chatLog");
-  const d=document.createElement("div");d.className="msg "+cls;d.textContent=t;l.appendChild(d);l.scrollTop=l.scrollHeight}
-function ask(q){
-  push("me",q);
-  const ok=SUJETS.some(s=>q.toLowerCase().includes(s));
-  setTimeout(()=>{ok?push("ai",REPS[ri++%REPS.length])
-    :push("guard","Je ne parle que d'argent de poche, d'épargne et de budget. Pour le reste, demande à un adulte de confiance ! 🙂")},420)}
+function push(c,t){const l=document.getElementById("chatLog"),d=document.createElement("div");
+  d.className="msg "+c;d.textContent=t;l.appendChild(d);l.scrollTop=l.scrollHeight}
+function ask(q){push("m-me",q);const ok=SUJ.some(s=>q.toLowerCase().includes(s));
+  setTimeout(()=>ok?push("m-ai",REP[ri++%REP.length])
+   :push("m-guard","Je ne parle que d'argent de poche, d'épargne et de budget. Pour le reste, demande à un adulte de confiance."),420)}
 function sendChat(){const i=document.getElementById("chatIn");if(!i.value.trim())return;ask(i.value.trim());i.value=""}
 document.getElementById("chatIn").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat()});
+
+/* ---------- confettis ---------- */
+function confetti(){
+  const cv=document.getElementById("confetti"),ctx=cv.getContext("2d");
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+  const r=cv.getBoundingClientRect();cv.width=r.width;cv.height=r.height;
+  const C=["#FDE68A","#6EE7B7","#93C5FD","#F9A8D4","#C4B5FD"];
+  const ps=Array.from({length:90},()=>({x:Math.random()*cv.width,y:-20-Math.random()*cv.height*.5,
+    w:5+Math.random()*6,h:8+Math.random()*7,vy:2+Math.random()*3,vx:-1+Math.random()*2,
+    a:Math.random()*6,va:-.15+Math.random()*.3,c:C[(Math.random()*C.length)|0]}));
+  let f=0;(function loop(){
+    ctx.clearRect(0,0,cv.width,cv.height);let alive=0;
+    ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.a+=p.va;if(p.y<cv.height+20)alive++;
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.a);ctx.fillStyle=p.c;
+      ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore()});
+    if(alive&&f++<260)requestAnimationFrame(loop);else ctx.clearRect(0,0,cv.width,cv.height)})();
+}
 
 /* ---------- divers ---------- */
 function toast(t){const o=document.querySelector(".toast");if(o)o.remove();
   const d=document.createElement("div");d.className="toast";d.textContent=t;
-  document.getElementById("screen").appendChild(d);setTimeout(()=>d.remove(),2200)}
+  document.getElementById("screen").appendChild(d);setTimeout(()=>d.remove(),2400)}
 document.getElementById("reset").addEventListener("click",()=>{S=structuredClone(SEED);cur=null;save();go("login");toast("Démo réinitialisée")});
-renderParent();
+setFrq("hebdo");rParent();
 </script>
 
 </body>
